@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ==================== RFI ==================== -->
+
+    <record id="view_construction_rfi_list" model="ir.ui.view">
+        <field name="name">construction.rfi.list</field>
+        <field name="model">construction.rfi</field>
+        <field name="arch" type="xml">
+            <list string="RFIs" decoration-danger="priority == '2'" decoration-warning="priority == '1'">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="subject"/>
+                <field name="requested_by"/>
+                <field name="assigned_to"/>
+                <field name="date_requested"/>
+                <field name="date_required"/>
+                <field name="priority" widget="priority"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_rfi_form" model="ir.ui.view">
+        <field name="name">construction.rfi.form</field>
+        <field name="model">construction.rfi</field>
+        <field name="arch" type="xml">
+            <form string="Request for Information">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,under_review,responded,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="RFI Details">
+                            <field name="project_id"/>
+                            <field name="subject"/>
+                            <field name="priority" widget="priority"/>
+                        </group>
+                        <group string="Assignees &amp; Dates">
+                            <field name="requested_by"/>
+                            <field name="assigned_to"/>
+                            <field name="date_requested"/>
+                            <field name="date_required"/>
+                            <field name="date_responded"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Response">
+                            <field name="response"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_rfi_search" model="ir.ui.view">
+        <field name="name">construction.rfi.search</field>
+        <field name="model">construction.rfi</field>
+        <field name="arch" type="xml">
+            <search string="Search RFIs">
+                <field name="name"/>
+                <field name="subject"/>
+                <field name="project_id"/>
+                <field name="assigned_to"/>
+                <separator/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="submitted" string="Submitted" domain="[('state','=','submitted')]"/>
+                <filter name="under_review" string="Under Review" domain="[('state','=','under_review')]"/>
+                <filter name="responded" string="Responded" domain="[('state','=','responded')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <separator/>
+                <filter name="urgent" string="Urgent" domain="[('priority','=','2')]"/>
+                <filter name="high" string="High Priority" domain="[('priority','=','1')]"/>
+                <separator/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_rfi" model="ir.actions.act_window">
+        <field name="name">RFIs</field>
+        <field name="res_model">construction.rfi</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create your first RFI!</p>
+        </field>
+    </record>
+
+    <!-- ==================== DAILY LOG ==================== -->
+
+    <record id="view_construction_daily_log_list" model="ir.ui.view">
+        <field name="name">construction.daily.log.list</field>
+        <field name="model">construction.daily.log</field>
+        <field name="arch" type="xml">
+            <list string="Daily Logs">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="date"/>
+                <field name="weather"/>
+                <field name="temperature"/>
+                <field name="prepared_by"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_daily_log_form" model="ir.ui.view">
+        <field name="name">construction.daily.log.form</field>
+        <field name="model">construction.daily.log</field>
+        <field name="arch" type="xml">
+            <form string="Daily Site Log">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Log Details">
+                            <field name="project_id"/>
+                            <field name="date"/>
+                            <field name="prepared_by"/>
+                        </group>
+                        <group string="Weather Conditions">
+                            <field name="weather"/>
+                            <field name="temperature"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Activities">
+                            <field name="activities_summary"/>
+                        </page>
+                        <page string="Safety Remarks">
+                            <field name="safety_remarks"/>
+                        </page>
+                        <page string="Manpower">
+                            <field name="manpower_ids">
+                                <list editable="bottom">
+                                    <field name="trade"/>
+                                    <field name="contractor"/>
+                                    <field name="count"/>
+                                    <field name="hours"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Equipment">
+                            <field name="equipment_ids">
+                                <list editable="bottom">
+                                    <field name="equipment_name"/>
+                                    <field name="type"/>
+                                    <field name="count"/>
+                                    <field name="hours"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_daily_log_search" model="ir.ui.view">
+        <field name="name">construction.daily.log.search</field>
+        <field name="model">construction.daily.log</field>
+        <field name="arch" type="xml">
+            <search string="Search Daily Logs">
+                <field name="name"/>
+                <field name="project_id"/>
+                <separator/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="submitted" string="Submitted" domain="[('state','=','submitted')]"/>
+                <filter name="approved" string="Approved" domain="[('state','=','approved')]"/>
+                <separator/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_date" string="Date" context="{'group_by': 'date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_daily_log" model="ir.actions.act_window">
+        <field name="name">Daily Logs</field>
+        <field name="res_model">construction.daily.log</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== NCR ==================== -->
+
+    <record id="view_construction_ncr_list" model="ir.ui.view">
+        <field name="name">construction.ncr.list</field>
+        <field name="model">construction.ncr</field>
+        <field name="arch" type="xml">
+            <list string="NCRs" decoration-danger="severity == 'critical'" decoration-warning="severity == 'high'">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="subject"/>
+                <field name="raised_by"/>
+                <field name="assigned_to"/>
+                <field name="date_raised"/>
+                <field name="date_due"/>
+                <field name="severity" widget="badge" decoration-danger="severity == 'critical'" decoration-warning="severity == 'high'"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_ncr_form" model="ir.ui.view">
+        <field name="name">construction.ncr.form</field>
+        <field name="model">construction.ncr</field>
+        <field name="arch" type="xml">
+            <form string="Non-Conformance Report">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,open,in_progress,resolved,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="NCR Details">
+                            <field name="project_id"/>
+                            <field name="subject"/>
+                            <field name="severity"/>
+                        </group>
+                        <group string="Assignees &amp; Dates">
+                            <field name="raised_by"/>
+                            <field name="assigned_to"/>
+                            <field name="date_raised"/>
+                            <field name="date_due"/>
+                            <field name="date_closed"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Root Cause &amp; Actions">
+                            <group>
+                                <field name="root_cause"/>
+                                <field name="corrective_action"/>
+                                <field name="preventive_action"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_ncr_search" model="ir.ui.view">
+        <field name="name">construction.ncr.search</field>
+        <field name="model">construction.ncr</field>
+        <field name="arch" type="xml">
+            <search string="Search NCRs">
+                <field name="name"/>
+                <field name="subject"/>
+                <field name="project_id"/>
+                <separator/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="in_progress" string="In Progress" domain="[('state','=','in_progress')]"/>
+                <filter name="resolved" string="Resolved" domain="[('state','=','resolved')]"/>
+                <separator/>
+                <filter name="critical" string="Critical" domain="[('severity','=','critical')]"/>
+                <filter name="high" string="High" domain="[('severity','=','high')]"/>
+                <separator/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_severity" string="Severity" context="{'group_by': 'severity'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_ncr" model="ir.actions.act_window">
+        <field name="name">NCRs</field>
+        <field name="res_model">construction.ncr</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== TRANSMITTAL ==================== -->
+
+    <record id="view_construction_transmittal_list" model="ir.ui.view">
+        <field name="name">construction.transmittal.list</field>
+        <field name="model">construction.transmittal</field>
+        <field name="arch" type="xml">
+            <list string="Transmittals">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="transmittal_date"/>
+                <field name="to_company"/>
+                <field name="to_contact"/>
+                <field name="subject"/>
+                <field name="purpose"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_transmittal_form" model="ir.ui.view">
+        <field name="name">construction.transmittal.form</field>
+        <field name="model">construction.transmittal</field>
+        <field name="arch" type="xml">
+            <form string="Document Transmittal">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,acknowledged"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Transmittal Details">
+                            <field name="project_id"/>
+                            <field name="transmittal_date"/>
+                            <field name="purpose"/>
+                            <field name="from_user_id"/>
+                        </group>
+                        <group string="Recipient">
+                            <field name="to_company"/>
+                            <field name="to_contact"/>
+                            <field name="subject"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Documents">
+                            <field name="line_ids">
+                                <list editable="bottom">
+                                    <field name="document_ref"/>
+                                    <field name="description"/>
+                                    <field name="revision"/>
+                                    <field name="copies"/>
+                                    <field name="document_type"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Remarks">
+                            <field name="remarks"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_transmittal_search" model="ir.ui.view">
+        <field name="name">construction.transmittal.search</field>
+        <field name="model">construction.transmittal</field>
+        <field name="arch" type="xml">
+            <search string="Search Transmittals">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="to_company"/>
+                <separator/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="sent" string="Sent" domain="[('state','=','sent')]"/>
+                <filter name="acknowledged" string="Acknowledged" domain="[('state','=','acknowledged')]"/>
+                <separator/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_transmittal" model="ir.actions.act_window">
+        <field name="name">Transmittals</field>
+        <field name="res_model">construction.transmittal</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== SHOP DRAWING ==================== -->
+
+    <record id="view_construction_shop_drawing_list" model="ir.ui.view">
+        <field name="name">construction.shop.drawing.list</field>
+        <field name="model">construction.shop.drawing</field>
+        <field name="arch" type="xml">
+            <list string="Shop Drawings">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="drawing_number"/>
+                <field name="title"/>
+                <field name="revision"/>
+                <field name="discipline"/>
+                <field name="submitted_date"/>
+                <field name="reviewer_id"/>
+                <field name="status" widget="badge" decoration-success="status == 'approved'" decoration-warning="status == 'approved_as_noted'" decoration-danger="status == 'rejected'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_shop_drawing_form" model="ir.ui.view">
+        <field name="name">construction.shop.drawing.form</field>
+        <field name="model">construction.shop.drawing</field>
+        <field name="arch" type="xml">
+            <form string="Shop Drawing">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="draft,submitted,under_review,approved"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Drawing Details">
+                            <field name="project_id"/>
+                            <field name="drawing_number"/>
+                            <field name="title"/>
+                            <field name="revision"/>
+                            <field name="discipline"/>
+                        </group>
+                        <group string="Review Details">
+                            <field name="submitted_date"/>
+                            <field name="review_date"/>
+                            <field name="reviewer_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Comments">
+                            <field name="comments"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_shop_drawing_search" model="ir.ui.view">
+        <field name="name">construction.shop.drawing.search</field>
+        <field name="model">construction.shop.drawing</field>
+        <field name="arch" type="xml">
+            <search string="Search Shop Drawings">
+                <field name="name"/>
+                <field name="drawing_number"/>
+                <field name="title"/>
+                <field name="project_id"/>
+                <separator/>
+                <filter name="approved" string="Approved" domain="[('status','=','approved')]"/>
+                <filter name="under_review" string="Under Review" domain="[('status','=','under_review')]"/>
+                <filter name="rejected" string="Rejected" domain="[('status','=','rejected')]"/>
+                <separator/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_discipline" string="Discipline" context="{'group_by': 'discipline'}"/>
+                    <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_shop_drawing" model="ir.actions.act_window">
+        <field name="name">Shop Drawings</field>
+        <field name="res_model">construction.shop.drawing</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

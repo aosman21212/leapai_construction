@@ -1,0 +1,1941 @@
+# Arabic translation of LeapAI Construction ERP
+# Copyright (C) 2026 LeapAI
+# This file is distributed under the same license as the leapai_construction module.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-20 00:00+0000\n"
+"PO-Revision-Date: 2026-07-20 00:00+0000\n"
+"Last-Translator: LeapAI <support@leapai.ai>\n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#. module: leapai_construction
+msgid "1 - Negligible"
+msgstr "1 - لا يُذكر"
+
+#. module: leapai_construction
+msgid "1 - Rare"
+msgstr "1 - نادر"
+
+#. module: leapai_construction
+msgid "2 - Minor"
+msgstr "2 - بسيط"
+
+#. module: leapai_construction
+msgid "2 - Unlikely"
+msgstr "2 - غير محتمل"
+
+#. module: leapai_construction
+msgid "3 - Moderate"
+msgstr "3 - متوسط"
+
+#. module: leapai_construction
+msgid "3 - Possible"
+msgstr "3 - ممكن"
+
+#. module: leapai_construction
+msgid "4 - Likely"
+msgstr "4 - محتمل"
+
+#. module: leapai_construction
+msgid "4 - Major"
+msgstr "4 - كبير"
+
+#. module: leapai_construction
+msgid "5 - Almost Certain"
+msgstr "5 - شبه مؤكد"
+
+#. module: leapai_construction
+msgid "5 - Catastrophic"
+msgstr "5 - كارثي"
+
+#. module: leapai_construction
+msgid "<i class=\"fa fa-calendar\" title=\"Dates\"/>"
+msgstr "<i class=\"fa fa-calendar\" title=\"التواريخ\"/>"
+
+#. module: leapai_construction
+msgid "<i class=\"fa fa-money\" title=\"Contract Value\"/>"
+msgstr "<i class=\"fa fa-money\" title=\"قيمة العقد\"/>"
+
+#. module: leapai_construction
+msgid "<i class=\"fa fa-user\" title=\"Client\"/>"
+msgstr "<i class=\"fa fa-user\" title=\"العميل\"/>"
+
+#. module: leapai_construction
+msgid "Achieved"
+msgstr "تم التحقق"
+
+#. module: leapai_construction
+msgid "Acknowledged"
+msgstr "تم الإقرار"
+
+#. module: leapai_construction
+msgid "Action Details"
+msgstr "تفاصيل الإجراء"
+
+#. module: leapai_construction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: leapai_construction
+msgid "Active"
+msgstr "نشط"
+
+#. module: leapai_construction
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: leapai_construction
+msgid "Activities Summary"
+msgstr "ملخص الأنشطة"
+
+#. module: leapai_construction
+msgid "Activity Exception Decoration"
+msgstr "تمييز استثناء النشاط"
+
+#. module: leapai_construction
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: leapai_construction
+msgid "Activity Type Icon"
+msgstr "أيقونة نوع النشاط"
+
+#. module: leapai_construction
+msgid "Actual Amount"
+msgstr "المبلغ الفعلي"
+
+#. module: leapai_construction
+msgid "Actual Date"
+msgstr "التاريخ الفعلي"
+
+#. module: leapai_construction
+msgid "Actual Dates"
+msgstr "التواريخ الفعلية"
+
+#. module: leapai_construction
+msgid "Actual End"
+msgstr "نهاية فعلية"
+
+#. module: leapai_construction
+msgid "Actual End Date"
+msgstr "تاريخ الانتهاء الفعلي"
+
+#. module: leapai_construction
+msgid "Actual Start"
+msgstr "بداية فعلية"
+
+#. module: leapai_construction
+msgid "Actual Start Date"
+msgstr "تاريخ البدء الفعلي"
+
+#. module: leapai_construction
+msgid "All Projects"
+msgstr "جميع المشاريع"
+
+#. module: leapai_construction
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: leapai_construction
+msgid "Approval"
+msgstr "الموافقة"
+
+#. module: leapai_construction
+msgid "Approved"
+msgstr "معتمد"
+
+#. module: leapai_construction
+msgid "Approved As Noted"
+msgstr "معتمد مع الملاحظات"
+
+#. module: leapai_construction
+msgid "Approved By"
+msgstr "معتمد من قِبل"
+
+#. module: leapai_construction
+msgid "Approved Date"
+msgstr "تاريخ الاعتماد"
+
+#. module: leapai_construction
+msgid "Architectural"
+msgstr "معماري"
+
+#. module: leapai_construction
+msgid "Assigned To"
+msgstr "مُعيَّن إلى"
+
+#. module: leapai_construction
+msgid "Assignees & Dates"
+msgstr "المكلَّفون والتواريخ"
+
+#. module: leapai_construction
+msgid "Assignment & Finance"
+msgstr "التكليف والتمويل"
+
+#. module: leapai_construction
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: leapai_construction
+msgid "Attachments"
+msgstr "المرفقات"
+
+#. module: leapai_construction
+msgid "Attendance"
+msgstr "الحضور"
+
+#. module: leapai_construction
+msgid "Attendance Details"
+msgstr "تفاصيل الحضور"
+
+#. module: leapai_construction
+msgid "Attendee Count"
+msgstr "عدد الحاضرين"
+
+#. module: leapai_construction
+msgid "Attendees"
+msgstr "الحاضرون"
+
+#. module: leapai_construction
+msgid "Available"
+msgstr "متاح"
+
+#. module: leapai_construction
+msgid "Badge Number"
+msgstr "رقم الشارة"
+
+#. module: leapai_construction
+msgid "Budget"
+msgstr "الميزانية"
+
+#. module: leapai_construction
+msgid "Budget Amount"
+msgstr "مبلغ الميزانية"
+
+#. module: leapai_construction
+msgid "Budget Details"
+msgstr "تفاصيل الميزانية"
+
+#. module: leapai_construction
+msgid "Budget Line"
+msgstr "بند الميزانية"
+
+#. module: leapai_construction
+msgid "Budget Lines"
+msgstr "بنود الميزانية"
+
+#. module: leapai_construction
+msgid "Budget Reference"
+msgstr "مرجع الميزانية"
+
+#. module: leapai_construction
+msgid "Budget Type"
+msgstr "نوع الميزانية"
+
+#. module: leapai_construction
+msgid "Budgeted Amount"
+msgstr "المبلغ المُدرَج في الميزانية"
+
+#. module: leapai_construction
+msgid "Budgets"
+msgstr "الميزانيات"
+
+#. module: leapai_construction
+msgid "Bulldozer"
+msgstr "جرَّافة"
+
+#. module: leapai_construction
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: leapai_construction
+msgid "Cancelled"
+msgstr "ملغى"
+
+#. module: leapai_construction
+msgid "Category"
+msgstr "الفئة"
+
+#. module: leapai_construction
+msgid "Certified"
+msgstr "معتمد"
+
+#. module: leapai_construction
+msgid "Change Order"
+msgstr "أمر التغيير"
+
+#. module: leapai_construction
+msgid "Change Order Details"
+msgstr "تفاصيل أمر التغيير"
+
+#. module: leapai_construction
+msgid "Change Order Reference"
+msgstr "مرجع أمر التغيير"
+
+#. module: leapai_construction
+msgid "Change Orders"
+msgstr "أوامر التغيير"
+
+#. module: leapai_construction
+msgid "Check In"
+msgstr "تسجيل الحضور"
+
+#. module: leapai_construction
+msgid "Check Out"
+msgstr "تسجيل الانصراف"
+
+#. module: leapai_construction
+msgid "Checked In"
+msgstr "تم تسجيل الحضور"
+
+#. module: leapai_construction
+msgid "Checked Out"
+msgstr "تم تسجيل الانصراف"
+
+#. module: leapai_construction
+msgid "Civil"
+msgstr "مدني"
+
+#. module: leapai_construction
+msgid "Client"
+msgstr "العميل"
+
+#. module: leapai_construction
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: leapai_construction
+msgid "Cloudy"
+msgstr "غائم"
+
+#. module: leapai_construction
+msgid "Code"
+msgstr "الرمز"
+
+#. module: leapai_construction
+msgid "Comments"
+msgstr "التعليقات"
+
+#. module: leapai_construction
+msgid "Compactor"
+msgstr "ضاغطة"
+
+#. module: leapai_construction
+msgid "Company"
+msgstr "الشركة"
+
+#. module: leapai_construction
+msgid "Completed"
+msgstr "مكتمل"
+
+#. module: leapai_construction
+msgid "Concrete Mixer"
+msgstr "خلاطة خرسانة"
+
+#. module: leapai_construction
+msgid "Conducted"
+msgstr "تم إجراؤه"
+
+#. module: leapai_construction
+msgid "Conducted By"
+msgstr "أُجري بواسطة"
+
+#. module: leapai_construction
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: leapai_construction
+msgid "Construction"
+msgstr "الإنشاء"
+
+#. module: leapai_construction
+msgid "Construction Document"
+msgstr "وثيقة إنشاء"
+
+#. module: leapai_construction
+msgid "Construction Equipment"
+msgstr "معدات الإنشاء"
+
+#. module: leapai_construction
+msgid "Construction Project"
+msgstr "مشروع إنشاء"
+
+#. module: leapai_construction
+msgid "Construction Project Type"
+msgstr "نوع مشروع الإنشاء"
+
+#. module: leapai_construction
+msgid "Content"
+msgstr "المحتوى"
+
+#. module: leapai_construction
+msgid "Contingency"
+msgstr "الطوارئ"
+
+#. module: leapai_construction
+msgid "Contract"
+msgstr "العقد"
+
+#. module: leapai_construction
+msgid "Contract Value"
+msgstr "قيمة العقد"
+
+#. module: leapai_construction
+msgid "Contractor"
+msgstr "المقاول"
+
+#. module: leapai_construction
+msgid "Copies"
+msgstr "النسخ"
+
+#. module: leapai_construction
+msgid "Corrective"
+msgstr "تصحيحي"
+
+#. module: leapai_construction
+msgid "Corrective Action"
+msgstr "الإجراء التصحيحي"
+
+#. module: leapai_construction
+msgid "Correspondence"
+msgstr "المراسلات"
+
+#. module: leapai_construction
+msgid "Cost"
+msgstr "التكلفة"
+
+#. module: leapai_construction
+msgid "Cost Estimate"
+msgstr "تقدير التكلفة"
+
+#. module: leapai_construction
+msgid "Cost Impact"
+msgstr "تأثير التكلفة"
+
+#. module: leapai_construction
+msgid "Cost Lines"
+msgstr "بنود التكلفة"
+
+#. module: leapai_construction
+msgid "Cost Sheet"
+msgstr "كشف التكاليف"
+
+#. module: leapai_construction
+msgid "Cost Sheet Details"
+msgstr "تفاصيل كشف التكاليف"
+
+#. module: leapai_construction
+msgid "Cost Sheet Line"
+msgstr "بند كشف التكاليف"
+
+#. module: leapai_construction
+msgid "Cost Sheet Reference"
+msgstr "مرجع كشف التكاليف"
+
+#. module: leapai_construction
+msgid "Cost Sheets"
+msgstr "كشوف التكاليف"
+
+#. module: leapai_construction
+msgid "Cost Type"
+msgstr "نوع التكلفة"
+
+#. module: leapai_construction
+msgid "Count"
+msgstr "العدد"
+
+#. module: leapai_construction
+msgid "Crane"
+msgstr "رافعة"
+
+#. module: leapai_construction
+msgid "Create your first RFI!"
+msgstr "أنشئ أول طلب معلومات لك!"
+
+#. module: leapai_construction
+msgid "Create your first construction project!"
+msgstr "أنشئ أول مشروع إنشاء لك!"
+
+#. module: leapai_construction
+msgid "Created by"
+msgstr "أُنشئ بواسطة"
+
+#. module: leapai_construction
+msgid "Created on"
+msgstr "تاريخ الإنشاء"
+
+#. module: leapai_construction
+msgid "Critical"
+msgstr "حرج"
+
+#. module: leapai_construction
+msgid "Currency"
+msgstr "العملة"
+
+#. module: leapai_construction
+msgid "Current Project"
+msgstr "المشروع الحالي"
+
+#. module: leapai_construction
+msgid "Daily Log"
+msgstr "السجل اليومي"
+
+#. module: leapai_construction
+msgid "Daily Log Equipment"
+msgstr "معدات السجل اليومي"
+
+#. module: leapai_construction
+msgid "Daily Log Manpower"
+msgstr "القوى العاملة في السجل اليومي"
+
+#. module: leapai_construction
+msgid "Daily Logs"
+msgstr "السجلات اليومية"
+
+#. module: leapai_construction
+msgid "Daily Rate"
+msgstr "السعر اليومي"
+
+#. module: leapai_construction
+msgid "Daily Site Log"
+msgstr "سجل الموقع اليومي"
+
+#. module: leapai_construction
+msgid "Dashboard"
+msgstr "لوحة المعلومات"
+
+#. module: leapai_construction
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: leapai_construction
+msgid "Date Approved"
+msgstr "تاريخ الاعتماد"
+
+#. module: leapai_construction
+msgid "Date Closed"
+msgstr "تاريخ الإغلاق"
+
+#. module: leapai_construction
+msgid "Date Completed"
+msgstr "تاريخ الاكتمال"
+
+#. module: leapai_construction
+msgid "Date Due"
+msgstr "تاريخ الاستحقاق"
+
+#. module: leapai_construction
+msgid "Date Observed"
+msgstr "تاريخ الملاحظة"
+
+#. module: leapai_construction
+msgid "Date Prepared"
+msgstr "تاريخ الإعداد"
+
+#. module: leapai_construction
+msgid "Date Raised"
+msgstr "تاريخ الرفع"
+
+#. module: leapai_construction
+msgid "Date Reported"
+msgstr "تاريخ الإبلاغ"
+
+#. module: leapai_construction
+msgid "Date Requested"
+msgstr "تاريخ الطلب"
+
+#. module: leapai_construction
+msgid "Date Required"
+msgstr "التاريخ المطلوب"
+
+#. module: leapai_construction
+msgid "Date Responded"
+msgstr "تاريخ الرد"
+
+#. module: leapai_construction
+msgid "Date Submitted"
+msgstr "تاريخ التقديم"
+
+#. module: leapai_construction
+msgid "Dates"
+msgstr "التواريخ"
+
+#. module: leapai_construction
+msgid "Dates & Cost"
+msgstr "التواريخ والتكلفة"
+
+#. module: leapai_construction
+msgid "Delayed"
+msgstr "متأخر"
+
+#. module: leapai_construction
+msgid "Deployed"
+msgstr "مُنتشر"
+
+#. module: leapai_construction
+msgid "Description"
+msgstr "الوصف"
+
+#. module: leapai_construction
+msgid "Discipline"
+msgstr "التخصص"
+
+#. module: leapai_construction
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: leapai_construction
+msgid "Document Details"
+msgstr "تفاصيل الوثيقة"
+
+#. module: leapai_construction
+msgid "Document Ref"
+msgstr "مرجع الوثيقة"
+
+#. module: leapai_construction
+msgid "Document Reference"
+msgstr "رقم مرجع الوثيقة"
+
+#. module: leapai_construction
+msgid "Document Register"
+msgstr "سجل الوثائق"
+
+#. module: leapai_construction
+msgid "Document Transmittal"
+msgstr "حوالة الوثيقة"
+
+#. module: leapai_construction
+msgid "Document Type"
+msgstr "نوع الوثيقة"
+
+#. module: leapai_construction
+msgid "Documents"
+msgstr "الوثائق"
+
+#. module: leapai_construction
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: leapai_construction
+msgid "Drawing"
+msgstr "رسم"
+
+#. module: leapai_construction
+msgid "Drawing Details"
+msgstr "تفاصيل الرسم"
+
+#. module: leapai_construction
+msgid "Drawing Number"
+msgstr "رقم الرسم"
+
+#. module: leapai_construction
+msgid "Driving License"
+msgstr "رخصة القيادة"
+
+#. module: leapai_construction
+msgid "Dump Truck"
+msgstr "شاحنة قلاب"
+
+#. module: leapai_construction
+msgid "Electrical"
+msgstr "كهربائي"
+
+#. module: leapai_construction
+msgid "Emergency"
+msgstr "طارئ"
+
+#. module: leapai_construction
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: leapai_construction
+msgid "End Date/Time"
+msgstr "تاريخ/وقت الانتهاء"
+
+#. module: leapai_construction
+msgid "Environmental"
+msgstr "بيئي"
+
+#. module: leapai_construction
+msgid "Equipment"
+msgstr "المعدات"
+
+#. module: leapai_construction
+msgid "Equipment Details"
+msgstr "تفاصيل المعدات"
+
+#. module: leapai_construction
+msgid "Equipment ID"
+msgstr "معرّف المعدات"
+
+#. module: leapai_construction
+msgid "Equipment Maintenance"
+msgstr "صيانة المعدات"
+
+#. module: leapai_construction
+msgid "Equipment Name"
+msgstr "اسم المعدات"
+
+#. module: leapai_construction
+msgid "Equipment Type"
+msgstr "نوع المعدات"
+
+#. module: leapai_construction
+msgid "Estimate"
+msgstr "التقدير"
+
+#. module: leapai_construction
+msgid "Estimate Details"
+msgstr "تفاصيل التقدير"
+
+#. module: leapai_construction
+msgid "Estimate Line"
+msgstr "بند التقدير"
+
+#. module: leapai_construction
+msgid "Estimate Reference"
+msgstr "مرجع التقدير"
+
+#. module: leapai_construction
+msgid "Estimates"
+msgstr "التقديرات"
+
+#. module: leapai_construction
+msgid "Excavator"
+msgstr "حفَّارة"
+
+#. module: leapai_construction
+msgid "Expired"
+msgstr "منتهي الصلاحية"
+
+#. module: leapai_construction
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: leapai_construction
+msgid "Final"
+msgstr "نهائي"
+
+#. module: leapai_construction
+msgid "Finance"
+msgstr "المالية"
+
+#. module: leapai_construction
+msgid "Financial"
+msgstr "مالي"
+
+#. module: leapai_construction
+msgid "Financial Summary"
+msgstr "الملخص المالي"
+
+#. module: leapai_construction
+msgid "Foggy"
+msgstr "ضبابي"
+
+#. module: leapai_construction
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: leapai_construction
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: leapai_construction
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "أيقونة Font Awesome مثل fa-tasks"
+
+#. module: leapai_construction
+msgid "For Approval"
+msgstr "للاعتماد"
+
+#. module: leapai_construction
+msgid "For Information"
+msgstr "للإعلام"
+
+#. module: leapai_construction
+msgid "For Record"
+msgstr "للحفظ"
+
+#. module: leapai_construction
+msgid "For Review"
+msgstr "للمراجعة"
+
+#. module: leapai_construction
+msgid "From"
+msgstr "من"
+
+#. module: leapai_construction
+msgid "Generator"
+msgstr "مولد كهربائي"
+
+#. module: leapai_construction
+msgid "Grand Total"
+msgstr "المجموع الكلي"
+
+#. module: leapai_construction
+msgid "HSE & Safety"
+msgstr "الصحة والسلامة والبيئة"
+
+#. module: leapai_construction
+msgid "Has Message"
+msgstr "يحتوي رسالة"
+
+#. module: leapai_construction
+msgid "High"
+msgstr "مرتفع"
+
+#. module: leapai_construction
+msgid "High Priority"
+msgstr "أولوية عالية"
+
+#. module: leapai_construction
+msgid "High Risk"
+msgstr "مخاطرة عالية"
+
+#. module: leapai_construction
+msgid "Host"
+msgstr "المضيف"
+
+#. module: leapai_construction
+msgid "Hours"
+msgstr "ساعات"
+
+#. module: leapai_construction
+msgid "Hours Worked"
+msgstr "ساعات العمل"
+
+#. module: leapai_construction
+msgid "ID"
+msgstr "المعرّف"
+
+#. module: leapai_construction
+msgid "ID & Badge"
+msgstr "الهوية والشارة"
+
+#. module: leapai_construction
+msgid "ID Number"
+msgstr "رقم الهوية"
+
+#. module: leapai_construction
+msgid "ID Type"
+msgstr "نوع الهوية"
+
+#. module: leapai_construction
+msgid "IPC Details"
+msgstr "تفاصيل شهادة الدفع المرحلي"
+
+#. module: leapai_construction
+msgid "IPC Number"
+msgstr "رقم شهادة الدفع المرحلي"
+
+#. module: leapai_construction
+msgid "IPC Reference"
+msgstr "مرجع شهادة الدفع المرحلي"
+
+#. module: leapai_construction
+msgid "IPCs"
+msgstr "شهادات الدفع المرحلي"
+
+#. module: leapai_construction
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: leapai_construction
+msgid "Icon to indicate an exception activity."
+msgstr "أيقونة للإشارة إلى نشاط استثنائي."
+
+#. module: leapai_construction
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم التحديد، فإن الرسائل الجديدة تستدعي انتباهك."
+
+#. module: leapai_construction
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا تم التحديد، فبعض الرسائل لها خطأ في التسليم."
+
+#. module: leapai_construction
+msgid "Image"
+msgstr "الصورة"
+
+#. module: leapai_construction
+msgid "Impact"
+msgstr "التأثير"
+
+#. module: leapai_construction
+msgid "In Progress"
+msgstr "قيد التنفيذ"
+
+#. module: leapai_construction
+msgid "Initial"
+msgstr "أولي"
+
+#. module: leapai_construction
+msgid "Interim Payment Certificate"
+msgstr "شهادة الدفع المرحلي"
+
+#. module: leapai_construction
+msgid "Is Follower"
+msgstr "يتابع"
+
+#. module: leapai_construction
+msgid "Issued By"
+msgstr "صادر عن"
+
+#. module: leapai_construction
+msgid "Labour"
+msgstr "العمالة"
+
+#. module: leapai_construction
+msgid "Last Maintenance Date"
+msgstr "تاريخ آخر صيانة"
+
+#. module: leapai_construction
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: leapai_construction
+msgid "Last Updated on"
+msgstr "تاريخ آخر تحديث"
+
+#. module: leapai_construction
+msgid "Legal"
+msgstr "قانوني"
+
+#. module: leapai_construction
+msgid "Likelihood"
+msgstr "الاحتمالية"
+
+#. module: leapai_construction
+msgid "Line Items"
+msgstr "البنود التفصيلية"
+
+#. module: leapai_construction
+msgid "Lines"
+msgstr "البنود"
+
+#. module: leapai_construction
+msgid "Location"
+msgstr "الموقع"
+
+#. module: leapai_construction
+msgid "Log Details"
+msgstr "تفاصيل السجل"
+
+#. module: leapai_construction
+msgid "Low"
+msgstr "منخفض"
+
+#. module: leapai_construction
+msgid "Maintenance"
+msgstr "الصيانة"
+
+#. module: leapai_construction
+msgid "Maintenance Details"
+msgstr "تفاصيل الصيانة"
+
+#. module: leapai_construction
+msgid "Maintenance Reference"
+msgstr "مرجع الصيانة"
+
+#. module: leapai_construction
+msgid "Maintenance Type"
+msgstr "نوع الصيانة"
+
+#. module: leapai_construction
+msgid "Manpower"
+msgstr "القوى العاملة"
+
+#. module: leapai_construction
+msgid "Manufacturer"
+msgstr "المُصنِّع"
+
+#. module: leapai_construction
+msgid "Mark Completed"
+msgstr "تحديد كمكتمل"
+
+#. module: leapai_construction
+msgid "Material"
+msgstr "المواد"
+
+#. module: leapai_construction
+msgid "Mechanical"
+msgstr "ميكانيكي"
+
+#. module: leapai_construction
+msgid "Medium"
+msgstr "متوسط"
+
+#. module: leapai_construction
+msgid "Message Delivery error"
+msgstr "خطأ في تسليم الرسالة"
+
+#. module: leapai_construction
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: leapai_construction
+msgid "Milestone"
+msgstr "المعلَم"
+
+#. module: leapai_construction
+msgid "Milestone Details"
+msgstr "تفاصيل المعلَم"
+
+#. module: leapai_construction
+msgid "Milestone Name"
+msgstr "اسم المعلَم"
+
+#. module: leapai_construction
+msgid "Milestones"
+msgstr "المعالم"
+
+#. module: leapai_construction
+msgid "Mitigated"
+msgstr "تم التخفيف"
+
+#. module: leapai_construction
+msgid "Mitigation Plan"
+msgstr "خطة التخفيف"
+
+#. module: leapai_construction
+msgid "Model No."
+msgstr "رقم الطراز"
+
+#. module: leapai_construction
+msgid "My Activity Deadline"
+msgstr "الموعد النهائي لنشاطي"
+
+#. module: leapai_construction
+msgid "NCR Details"
+msgstr "تفاصيل تقرير عدم المطابقة"
+
+#. module: leapai_construction
+msgid "NCR Reference"
+msgstr "مرجع تقرير عدم المطابقة"
+
+#. module: leapai_construction
+msgid "NCRs"
+msgstr "تقارير عدم المطابقة"
+
+#. module: leapai_construction
+msgid "Name"
+msgstr "الاسم"
+
+#. module: leapai_construction
+msgid "National ID"
+msgstr "بطاقة هوية وطنية"
+
+#. module: leapai_construction
+msgid "Near Miss"
+msgstr "حادثة وشيكة"
+
+#. module: leapai_construction
+msgid "Net Certified"
+msgstr "صافي المعتمد"
+
+#. module: leapai_construction
+msgid "Next Activity Calendar Event"
+msgstr "حدث التقويم للنشاط التالي"
+
+#. module: leapai_construction
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: leapai_construction
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: leapai_construction
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: leapai_construction
+msgid "Next Maintenance Date"
+msgstr "تاريخ الصيانة التالية"
+
+#. module: leapai_construction
+msgid "Non-Conformance Report"
+msgstr "تقرير عدم المطابقة"
+
+#. module: leapai_construction
+msgid "Normal"
+msgstr "عادي"
+
+#. module: leapai_construction
+msgid "Notes"
+msgstr "الملاحظات"
+
+#. module: leapai_construction
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: leapai_construction
+msgid "Number of errors"
+msgstr "عدد الأخطاء"
+
+#. module: leapai_construction
+msgid "Number of messages requiring action"
+msgstr "عدد الرسائل التي تستدعي اتخاذ إجراء"
+
+#. module: leapai_construction
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطأ في التسليم"
+
+#. module: leapai_construction
+msgid "Observation Details"
+msgstr "تفاصيل الملاحظة"
+
+#. module: leapai_construction
+msgid "Observation Type"
+msgstr "نوع الملاحظة"
+
+#. module: leapai_construction
+msgid "Observed By"
+msgstr "لوحِظ بواسطة"
+
+#. module: leapai_construction
+msgid "On Hold"
+msgstr "متوقف مؤقتاً"
+
+#. module: leapai_construction
+msgid "Open"
+msgstr "مفتوح"
+
+#. module: leapai_construction
+msgid "Other"
+msgstr "أخرى"
+
+#. module: leapai_construction
+msgid "Out of Service"
+msgstr "خارج الخدمة"
+
+#. module: leapai_construction
+msgid "Overhead"
+msgstr "المصاريف العامة"
+
+#. module: leapai_construction
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: leapai_construction
+msgid "Parent"
+msgstr "الأصل"
+
+#. module: leapai_construction
+msgid "Parent WBS"
+msgstr "هيكل تقسيم العمل الأصل"
+
+#. module: leapai_construction
+msgid "Partly Cloudy"
+msgstr "غائم جزئياً"
+
+#. module: leapai_construction
+msgid "Passport"
+msgstr "جواز سفر"
+
+#. module: leapai_construction
+msgid "Pending"
+msgstr "معلَّق"
+
+#. module: leapai_construction
+msgid "Period"
+msgstr "الفترة"
+
+#. module: leapai_construction
+msgid "Period From"
+msgstr "الفترة من"
+
+#. module: leapai_construction
+msgid "Period To"
+msgstr "الفترة إلى"
+
+#. module: leapai_construction
+msgid "Permit Details"
+msgstr "تفاصيل التصريح"
+
+#. module: leapai_construction
+msgid "Permit Reference"
+msgstr "مرجع التصريح"
+
+#. module: leapai_construction
+msgid "Permit Type"
+msgstr "نوع التصريح"
+
+#. module: leapai_construction
+msgid "Permit Types"
+msgstr "أنواع التصاريح"
+
+#. module: leapai_construction
+msgid "Permits"
+msgstr "التصاريح"
+
+#. module: leapai_construction
+msgid "Planned Date"
+msgstr "التاريخ المخطط"
+
+#. module: leapai_construction
+msgid "Planned Dates"
+msgstr "التواريخ المخططة"
+
+#. module: leapai_construction
+msgid "Planned End"
+msgstr "نهاية مخططة"
+
+#. module: leapai_construction
+msgid "Planned End Date"
+msgstr "تاريخ الانتهاء المخطط"
+
+#. module: leapai_construction
+msgid "Planned Start"
+msgstr "بداية مخططة"
+
+#. module: leapai_construction
+msgid "Planned Start Date"
+msgstr "تاريخ البدء المخطط"
+
+#. module: leapai_construction
+msgid "Plant & Equipment"
+msgstr "المنشآت والمعدات"
+
+#. module: leapai_construction
+msgid "Plumbing"
+msgstr "سباكة"
+
+#. module: leapai_construction
+msgid "Positive Observation"
+msgstr "ملاحظة إيجابية"
+
+#. module: leapai_construction
+msgid "Prepared By"
+msgstr "أُعِدَّ بواسطة"
+
+#. module: leapai_construction
+msgid "Preventive"
+msgstr "وقائي"
+
+#. module: leapai_construction
+msgid "Preventive Action"
+msgstr "الإجراء الوقائي"
+
+#. module: leapai_construction
+msgid "Priority"
+msgstr "الأولوية"
+
+#. module: leapai_construction
+msgid "Progress (%)"
+msgstr "التقدم (%)"
+
+#. module: leapai_construction
+msgid "Project"
+msgstr "المشروع"
+
+#. module: leapai_construction
+msgid "Project Budget"
+msgstr "ميزانية المشروع"
+
+#. module: leapai_construction
+msgid "Project Details"
+msgstr "تفاصيل المشروع"
+
+#. module: leapai_construction
+msgid "Project Manager"
+msgstr "مدير المشروع"
+
+#. module: leapai_construction
+msgid "Project Milestone"
+msgstr "معلَم المشروع"
+
+#. module: leapai_construction
+msgid "Project Name"
+msgstr "اسم المشروع"
+
+#. module: leapai_construction
+msgid "Project Team"
+msgstr "فريق المشروع"
+
+#. module: leapai_construction
+msgid "Project Type"
+msgstr "نوع المشروع"
+
+#. module: leapai_construction
+msgid "Project Types"
+msgstr "أنواع المشاريع"
+
+#. module: leapai_construction
+msgid "Projects"
+msgstr "المشاريع"
+
+#. module: leapai_construction
+msgid "Pump"
+msgstr "مضخة"
+
+#. module: leapai_construction
+msgid "Purpose"
+msgstr "الغرض"
+
+#. module: leapai_construction
+msgid "Put On Hold"
+msgstr "وضع في الانتظار"
+
+#. module: leapai_construction
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: leapai_construction
+msgid "RFI Details"
+msgstr "تفاصيل طلب المعلومات"
+
+#. module: leapai_construction
+msgid "RFI Reference"
+msgstr "مرجع طلب المعلومات"
+
+#. module: leapai_construction
+msgid "RFIs"
+msgstr "طلبات المعلومات"
+
+#. module: leapai_construction
+msgid "Rainy"
+msgstr "ممطر"
+
+#. module: leapai_construction
+msgid "Raised By"
+msgstr "رُفع بواسطة"
+
+#. module: leapai_construction
+msgid "Ratings"
+msgstr "التقييمات"
+
+#. module: leapai_construction
+msgid "Reason"
+msgstr "السبب"
+
+#. module: leapai_construction
+msgid "Recipient"
+msgstr "المستلم"
+
+#. module: leapai_construction
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: leapai_construction
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: leapai_construction
+msgid "Remarks"
+msgstr "الملاحظات"
+
+#. module: leapai_construction
+msgid "Report"
+msgstr "تقرير"
+
+#. module: leapai_construction
+msgid "Reported By"
+msgstr "أُبلغ بواسطة"
+
+#. module: leapai_construction
+msgid "Request for Information"
+msgstr "طلب معلومات"
+
+#. module: leapai_construction
+msgid "Requested By"
+msgstr "طُلب بواسطة"
+
+#. module: leapai_construction
+msgid "Reset to Draft"
+msgstr "إعادة إلى المسودة"
+
+#. module: leapai_construction
+msgid "Resolution"
+msgstr "القرار"
+
+#. module: leapai_construction
+msgid "Resolved"
+msgstr "تم الحل"
+
+#. module: leapai_construction
+msgid "Responded"
+msgstr "تم الرد"
+
+#. module: leapai_construction
+msgid "Response"
+msgstr "الرد"
+
+#. module: leapai_construction
+msgid "Responsible"
+msgstr "المسؤول"
+
+#. module: leapai_construction
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: leapai_construction
+msgid "Resubmit"
+msgstr "إعادة التقديم"
+
+#. module: leapai_construction
+msgid "Resume"
+msgstr "استئناف"
+
+#. module: leapai_construction
+msgid "Retention (%)"
+msgstr "الاستقطاع (%)"
+
+#. module: leapai_construction
+msgid "Retention Amount"
+msgstr "مبلغ الاستقطاع"
+
+#. module: leapai_construction
+msgid "Review & Approval"
+msgstr "المراجعة والاعتماد"
+
+#. module: leapai_construction
+msgid "Review Date"
+msgstr "تاريخ المراجعة"
+
+#. module: leapai_construction
+msgid "Review Details"
+msgstr "تفاصيل المراجعة"
+
+#. module: leapai_construction
+msgid "Reviewed By"
+msgstr "رُوجع بواسطة"
+
+#. module: leapai_construction
+msgid "Reviewer"
+msgstr "المراجِع"
+
+#. module: leapai_construction
+msgid "Revised"
+msgstr "مُعدَّل"
+
+#. module: leapai_construction
+msgid "Revision"
+msgstr "المراجعة"
+
+#. module: leapai_construction
+msgid "Risk Assessment"
+msgstr "تقييم المخاطر"
+
+#. module: leapai_construction
+msgid "Risk Details"
+msgstr "تفاصيل المخاطرة"
+
+#. module: leapai_construction
+msgid "Risk Level"
+msgstr "مستوى المخاطرة"
+
+#. module: leapai_construction
+msgid "Risk Name"
+msgstr "اسم المخاطرة"
+
+#. module: leapai_construction
+msgid "Risk Register"
+msgstr "سجل المخاطر"
+
+#. module: leapai_construction
+msgid "Risk Score"
+msgstr "درجة المخاطرة"
+
+#. module: leapai_construction
+msgid "Root Cause"
+msgstr "السبب الجذري"
+
+#. module: leapai_construction
+msgid "Root Cause & Actions"
+msgstr "السبب الجذري والإجراءات"
+
+#. module: leapai_construction
+msgid "SMS Delivery error"
+msgstr "خطأ في تسليم الرسالة القصيرة"
+
+#. module: leapai_construction
+msgid "Safety"
+msgstr "السلامة"
+
+#. module: leapai_construction
+msgid "Safety Measures"
+msgstr "تدابير السلامة"
+
+#. module: leapai_construction
+msgid "Safety Observation"
+msgstr "ملاحظة السلامة"
+
+#. module: leapai_construction
+msgid "Safety Observations"
+msgstr "ملاحظات السلامة"
+
+#. module: leapai_construction
+msgid "Safety Remarks"
+msgstr "ملاحظات السلامة"
+
+#. module: leapai_construction
+msgid "Scaffolding"
+msgstr "السقالة"
+
+#. module: leapai_construction
+msgid "Schedule"
+msgstr "الجدول الزمني"
+
+#. module: leapai_construction
+msgid "Scheduling"
+msgstr "الجدولة الزمنية"
+
+#. module: leapai_construction
+msgid "Search Attendance"
+msgstr "بحث في الحضور"
+
+#. module: leapai_construction
+msgid "Search Budgets"
+msgstr "بحث في الميزانيات"
+
+#. module: leapai_construction
+msgid "Search Change Orders"
+msgstr "بحث في أوامر التغيير"
+
+#. module: leapai_construction
+msgid "Search Cost Sheets"
+msgstr "بحث في كشوف التكاليف"
+
+#. module: leapai_construction
+msgid "Search Daily Logs"
+msgstr "بحث في السجلات اليومية"
+
+#. module: leapai_construction
+msgid "Search Documents"
+msgstr "بحث في الوثائق"
+
+#. module: leapai_construction
+msgid "Search Equipment"
+msgstr "بحث في المعدات"
+
+#. module: leapai_construction
+msgid "Search Estimates"
+msgstr "بحث في التقديرات"
+
+#. module: leapai_construction
+msgid "Search IPCs"
+msgstr "بحث في شهادات الدفع"
+
+#. module: leapai_construction
+msgid "Search Maintenance"
+msgstr "بحث في الصيانة"
+
+#. module: leapai_construction
+msgid "Search Milestones"
+msgstr "بحث في المعالم"
+
+#. module: leapai_construction
+msgid "Search NCRs"
+msgstr "بحث في تقارير عدم المطابقة"
+
+#. module: leapai_construction
+msgid "Search Projects"
+msgstr "بحث في المشاريع"
+
+#. module: leapai_construction
+msgid "Search RFIs"
+msgstr "بحث في طلبات المعلومات"
+
+#. module: leapai_construction
+msgid "Search Risks"
+msgstr "بحث في المخاطر"
+
+#. module: leapai_construction
+msgid "Search Safety Observations"
+msgstr "بحث في ملاحظات السلامة"
+
+#. module: leapai_construction
+msgid "Search Shop Drawings"
+msgstr "بحث في الرسومات التفصيلية"
+
+#. module: leapai_construction
+msgid "Search Toolbox Talks"
+msgstr "بحث في نقاشات العدة"
+
+#. module: leapai_construction
+msgid "Search Transmittals"
+msgstr "بحث في الحوالات"
+
+#. module: leapai_construction
+msgid "Search Visitor Logs"
+msgstr "بحث في سجلات الزوار"
+
+#. module: leapai_construction
+msgid "Search WBS"
+msgstr "بحث في هيكل تقسيم العمل"
+
+#. module: leapai_construction
+msgid "Search Work Permits"
+msgstr "بحث في تصاريح العمل"
+
+#. module: leapai_construction
+msgid "Sent"
+msgstr "مُرسَل"
+
+#. module: leapai_construction
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: leapai_construction
+msgid "Serial No."
+msgstr "الرقم التسلسلي"
+
+#. module: leapai_construction
+msgid "Severity"
+msgstr "الخطورة"
+
+#. module: leapai_construction
+msgid "Shop Drawing"
+msgstr "الرسم التفصيلي"
+
+#. module: leapai_construction
+msgid "Shop Drawings"
+msgstr "الرسومات التفصيلية"
+
+#. module: leapai_construction
+msgid "Signed Off"
+msgstr "تم التوقيع"
+
+#. module: leapai_construction
+msgid "Site Address"
+msgstr "عنوان الموقع"
+
+#. module: leapai_construction
+msgid "Site Attendance"
+msgstr "حضور الموقع"
+
+#. module: leapai_construction
+msgid "Site Engineer"
+msgstr "مهندس الموقع"
+
+#. module: leapai_construction
+msgid "Site Operations"
+msgstr "عمليات الموقع"
+
+#. module: leapai_construction
+msgid "Specification"
+msgstr "المواصفات"
+
+#. module: leapai_construction
+msgid "Start"
+msgstr "بدء"
+
+#. module: leapai_construction
+msgid "Start Date/Time"
+msgstr "تاريخ/وقت البدء"
+
+#. module: leapai_construction
+msgid "Statistics"
+msgstr "الإحصاءات"
+
+#. module: leapai_construction
+msgid "Status"
+msgstr "الحالة"
+
+#. module: leapai_construction
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة بناءً على الأنشطة\n"
+"متأخر: تاريخ الاستحقاق قد مضى\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"مخطط: الأنشطة المستقبلية."
+
+#. module: leapai_construction
+msgid "Stormy"
+msgstr "عاصف"
+
+#. module: leapai_construction
+msgid "Structural"
+msgstr "إنشائي"
+
+#. module: leapai_construction
+msgid "Sub-items"
+msgstr "العناصر الفرعية"
+
+#. module: leapai_construction
+msgid "Subcontract"
+msgstr "مقاولة من الباطن"
+
+#. module: leapai_construction
+msgid "Subject"
+msgstr "الموضوع"
+
+#. module: leapai_construction
+msgid "Submitted"
+msgstr "مُقدَّم"
+
+#. module: leapai_construction
+msgid "Submitted By"
+msgstr "قُدِّم بواسطة"
+
+#. module: leapai_construction
+msgid "Submitted Date"
+msgstr "تاريخ التقديم"
+
+#. module: leapai_construction
+msgid "Subtotal"
+msgstr "المجموع الجزئي"
+
+#. module: leapai_construction
+msgid "Sunny"
+msgstr "مشمس"
+
+#. module: leapai_construction
+msgid "Superseded"
+msgstr "مُلغى لصالح إصدار جديد"
+
+#. module: leapai_construction
+msgid "Talk Details"
+msgstr "تفاصيل النقاش"
+
+#. module: leapai_construction
+msgid "Team"
+msgstr "الفريق"
+
+#. module: leapai_construction
+msgid "Technical"
+msgstr "تقني"
+
+#. module: leapai_construction
+msgid "Temperature (°C)"
+msgstr "درجة الحرارة (°م)"
+
+#. module: leapai_construction
+msgid "Time"
+msgstr "الوقت"
+
+#. module: leapai_construction
+msgid "Time Impact (Days)"
+msgstr "التأثير الزمني (أيام)"
+
+#. module: leapai_construction
+msgid "Title"
+msgstr "العنوان"
+
+#. module: leapai_construction
+msgid "To Company"
+msgstr "إلى الشركة"
+
+#. module: leapai_construction
+msgid "To Contact"
+msgstr "إلى جهة الاتصال"
+
+#. module: leapai_construction
+msgid "Toolbox Talk"
+msgstr "نقاش العدة"
+
+#. module: leapai_construction
+msgid "Toolbox Talks"
+msgstr "نقاشات العدة"
+
+#. module: leapai_construction
+msgid "Topic"
+msgstr "الموضوع"
+
+#. module: leapai_construction
+msgid "Total Actual"
+msgstr "الإجمالي الفعلي"
+
+#. module: leapai_construction
+msgid "Total Budgeted"
+msgstr "الإجمالي المُدرَج في الميزانية"
+
+#. module: leapai_construction
+msgid "Total Claimed"
+msgstr "إجمالي المطالبات"
+
+#. module: leapai_construction
+msgid "Total Equipment"
+msgstr "إجمالي المعدات"
+
+#. module: leapai_construction
+msgid "Total Labour"
+msgstr "إجمالي العمالة"
+
+#. module: leapai_construction
+msgid "Total Material"
+msgstr "إجمالي المواد"
+
+#. module: leapai_construction
+msgid "Total Overhead"
+msgstr "إجمالي المصاريف العامة"
+
+#. module: leapai_construction
+msgid "Total Subcontract"
+msgstr "إجمالي مقاولات الباطن"
+
+#. module: leapai_construction
+msgid "Total Variance"
+msgstr "إجمالي الفروقات"
+
+#. module: leapai_construction
+msgid "Totals"
+msgstr "الإجماليات"
+
+#. module: leapai_construction
+msgid "Trade"
+msgstr "المهنة"
+
+#. module: leapai_construction
+msgid "Transmittal"
+msgstr "الحوالة"
+
+#. module: leapai_construction
+msgid "Transmittal Date"
+msgstr "تاريخ الحوالة"
+
+#. module: leapai_construction
+msgid "Transmittal Details"
+msgstr "تفاصيل الحوالة"
+
+#. module: leapai_construction
+msgid "Transmittal Line"
+msgstr "بند الحوالة"
+
+#. module: leapai_construction
+msgid "Transmittal Ref"
+msgstr "مرجع الحوالة"
+
+#. module: leapai_construction
+msgid "Transmittals"
+msgstr "الحوالات"
+
+#. module: leapai_construction
+msgid "Type"
+msgstr "النوع"
+
+#. module: leapai_construction
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي في السجل."
+
+#. module: leapai_construction
+msgid "Under Maintenance"
+msgstr "تحت الصيانة"
+
+#. module: leapai_construction
+msgid "Under Review"
+msgstr "تحت المراجعة"
+
+#. module: leapai_construction
+msgid "Unit"
+msgstr "الوحدة"
+
+#. module: leapai_construction
+msgid "Unit Cost"
+msgstr "تكلفة الوحدة"
+
+#. module: leapai_construction
+msgid "Unit Price"
+msgstr "سعر الوحدة"
+
+#. module: leapai_construction
+msgid "Unit of Measure"
+msgstr "وحدة القياس"
+
+#. module: leapai_construction
+msgid "Unsafe Act"
+msgstr "تصرف غير آمن"
+
+#. module: leapai_construction
+msgid "Unsafe Condition"
+msgstr "ظرف غير آمن"
+
+#. module: leapai_construction
+msgid "Urgent"
+msgstr "عاجل"
+
+#. module: leapai_construction
+msgid "Valid Until"
+msgstr "صالح حتى"
+
+#. module: leapai_construction
+msgid "Variance"
+msgstr "الفارق"
+
+#. module: leapai_construction
+msgid "Visit Times"
+msgstr "أوقات الزيارة"
+
+#. module: leapai_construction
+msgid "Visitor Details"
+msgstr "تفاصيل الزائر"
+
+#. module: leapai_construction
+msgid "Visitor Log"
+msgstr "سجل الزوار"
+
+#. module: leapai_construction
+msgid "Visitor Logs"
+msgstr "سجلات الزوار"
+
+#. module: leapai_construction
+msgid "Visitor Name"
+msgstr "اسم الزائر"
+
+#. module: leapai_construction
+msgid "WBS"
+msgstr "هيكل تقسيم العمل"
+
+#. module: leapai_construction
+msgid "WBS Details"
+msgstr "تفاصيل هيكل تقسيم العمل"
+
+#. module: leapai_construction
+msgid "WBS Item"
+msgstr "عنصر هيكل تقسيم العمل"
+
+#. module: leapai_construction
+msgid "WBS Name"
+msgstr "اسم هيكل تقسيم العمل"
+
+#. module: leapai_construction
+msgid "Weather"
+msgstr "الطقس"
+
+#. module: leapai_construction
+msgid "Weather Conditions"
+msgstr "أحوال الطقس"
+
+#. module: leapai_construction
+msgid "Website Messages"
+msgstr "رسائل الموقع الإلكتروني"
+
+#. module: leapai_construction
+msgid "Website communication history"
+msgstr "سجل التواصل عبر الموقع الإلكتروني"
+
+#. module: leapai_construction
+msgid "Work Breakdown Structure"
+msgstr "هيكل تقسيم العمل"
+
+#. module: leapai_construction
+msgid "Work Description"
+msgstr "وصف العمل"
+
+#. module: leapai_construction
+msgid "Work Permit"
+msgstr "تصريح العمل"
+
+#. module: leapai_construction
+msgid "Work Permit Type"
+msgstr "نوع تصريح العمل"
+
+#. module: leapai_construction
+msgid "Work Permits"
+msgstr "تصاريح العمل"
+
+#. module: leapai_construction
+msgid "Year"
+msgstr "السنة"

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ==================== WBS ==================== -->
+
+    <record id="view_construction_wbs_list" model="ir.ui.view">
+        <field name="name">construction.wbs.list</field>
+        <field name="model">construction.wbs</field>
+        <field name="arch" type="xml">
+            <list string="WBS">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="parent_id"/>
+                <field name="responsible_id"/>
+                <field name="planned_start"/>
+                <field name="planned_end"/>
+                <field name="progress" widget="progressbar"/>
+                <field name="budget_amount"/>
+                <field name="currency_id" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_wbs_form" model="ir.ui.view">
+        <field name="name">construction.wbs.form</field>
+        <field name="model">construction.wbs</field>
+        <field name="arch" type="xml">
+            <form string="Work Breakdown Structure">
+                <sheet>
+                    <group>
+                        <group string="WBS Details">
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="project_id"/>
+                            <field name="parent_id"/>
+                            <field name="sequence"/>
+                            <field name="responsible_id"/>
+                        </group>
+                        <group string="Finance">
+                            <field name="budget_amount"/>
+                            <field name="currency_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Planned Dates">
+                            <field name="planned_start"/>
+                            <field name="planned_end"/>
+                        </group>
+                        <group string="Actual Dates">
+                            <field name="actual_start"/>
+                            <field name="actual_end"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="progress" widget="progressbar"/>
+                    </group>
+                    <notebook>
+                        <page string="Sub-items">
+                            <field name="child_ids">
+                                <list>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="responsible_id"/>
+                                    <field name="planned_start"/>
+                                    <field name="planned_end"/>
+                                    <field name="progress" widget="progressbar"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Milestones">
+                            <field name="milestone_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="planned_date"/>
+                                    <field name="actual_date"/>
+                                    <field name="state" widget="badge"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_wbs_search" model="ir.ui.view">
+        <field name="name">construction.wbs.search</field>
+        <field name="model">construction.wbs</field>
+        <field name="arch" type="xml">
+            <search string="Search WBS">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="project_id"/>
+                <field name="responsible_id"/>
+                <separator/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_parent" string="Parent" context="{'group_by': 'parent_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_wbs" model="ir.actions.act_window">
+        <field name="name">WBS</field>
+        <field name="res_model">construction.wbs</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== MILESTONE ==================== -->
+
+    <record id="view_construction_milestone_list" model="ir.ui.view">
+        <field name="name">construction.milestone.list</field>
+        <field name="model">construction.milestone</field>
+        <field name="arch" type="xml">
+            <list string="Milestones">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="wbs_id"/>
+                <field name="planned_date"/>
+                <field name="actual_date"/>
+                <field name="state" widget="badge" decoration-success="state == 'achieved'" decoration-danger="state == 'delayed'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_milestone_form" model="ir.ui.view">
+        <field name="name">construction.milestone.form</field>
+        <field name="model">construction.milestone</field>
+        <field name="arch" type="xml">
+            <form string="Milestone">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="pending,achieved,delayed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Milestone Details">
+                            <field name="name"/>
+                            <field name="project_id"/>
+                            <field name="wbs_id"/>
+                        </group>
+                        <group string="Dates">
+                            <field name="planned_date"/>
+                            <field name="actual_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_milestone_search" model="ir.ui.view">
+        <field name="name">construction.milestone.search</field>
+        <field name="model">construction.milestone</field>
+        <field name="arch" type="xml">
+            <search string="Search Milestones">
+                <field name="name"/>
+                <field name="project_id"/>
+                <separator/>
+                <filter name="pending" string="Pending" domain="[('state','=','pending')]"/>
+                <filter name="achieved" string="Achieved" domain="[('state','=','achieved')]"/>
+                <filter name="delayed" string="Delayed" domain="[('state','=','delayed')]"/>
+                <separator/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_milestone" model="ir.actions.act_window">
+        <field name="name">Milestones</field>
+        <field name="res_model">construction.milestone</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ==================== ROOT MENU ==================== -->
+
+    <menuitem
+        id="menu_construction_root"
+        name="Construction"
+        web_icon="leapai_construction,static/description/icon.png"
+        sequence="100"/>
+
+    <!-- ==================== DASHBOARD ==================== -->
+
+    <menuitem
+        id="menu_construction_dashboard"
+        name="Dashboard"
+        parent="menu_construction_root"
+        action="action_construction_project"
+        sequence="1"/>
+
+    <!-- ==================== PROJECTS ==================== -->
+
+    <menuitem
+        id="menu_construction_projects"
+        name="Projects"
+        parent="menu_construction_root"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_construction_all_projects"
+        name="All Projects"
+        parent="menu_construction_projects"
+        action="action_construction_project"
+        sequence="1"/>
+
+    <menuitem
+        id="menu_construction_projects_config"
+        name="Configuration"
+        parent="menu_construction_projects"
+        sequence="90"/>
+
+    <menuitem
+        id="menu_construction_project_types"
+        name="Project Types"
+        parent="menu_construction_projects_config"
+        action="action_construction_project_type"
+        sequence="1"/>
+
+    <!-- ==================== SITE OPERATIONS ==================== -->
+
+    <menuitem
+        id="menu_construction_site_ops"
+        name="Site Operations"
+        parent="menu_construction_root"
+        sequence="20"/>
+
+    <menuitem
+        id="menu_construction_rfi"
+        name="RFIs"
+        parent="menu_construction_site_ops"
+        action="action_construction_rfi"
+        sequence="1"/>
+
+    <menuitem
+        id="menu_construction_daily_log"
+        name="Daily Logs"
+        parent="menu_construction_site_ops"
+        action="action_construction_daily_log"
+        sequence="2"/>
+
+    <menuitem
+        id="menu_construction_ncr"
+        name="NCRs"
+        parent="menu_construction_site_ops"
+        action="action_construction_ncr"
+        sequence="3"/>
+
+    <menuitem
+        id="menu_construction_shop_drawing"
+        name="Shop Drawings"
+        parent="menu_construction_site_ops"
+        action="action_construction_shop_drawing"
+        sequence="4"/>
+
+    <menuitem
+        id="menu_construction_transmittal"
+        name="Transmittals"
+        parent="menu_construction_site_ops"
+        action="action_construction_transmittal"
+        sequence="5"/>
+
+    <!-- ==================== HSE & SAFETY ==================== -->
+
+    <menuitem
+        id="menu_construction_hse"
+        name="HSE &amp; Safety"
+        parent="menu_construction_root"
+        sequence="30"/>
+
+    <menuitem
+        id="menu_construction_work_permits"
+        name="Work Permits"
+        parent="menu_construction_hse"
+        action="action_construction_work_permit"
+        sequence="1"/>
+
+    <menuitem
+        id="menu_construction_risk_register"
+        name="Risk Register"
+        parent="menu_construction_hse"
+        action="action_construction_risk_register"
+        sequence="2"/>
+
+    <menuitem
+        id="menu_construction_toolbox_talks"
+        name="Toolbox Talks"
+        parent="menu_construction_hse"
+        action="action_construction_toolbox_talk"
+        sequence="3"/>
+
+    <menuitem
+        id="menu_construction_safety_observations"
+        name="Safety Observations"
+        parent="menu_construction_hse"
+        action="action_construction_safety_observation"
+        sequence="4"/>
+
+    <menuitem
+        id="menu_construction_site_attendance"
+        name="Site Attendance"
+        parent="menu_construction_hse"
+        action="action_construction_site_attendance"
+        sequence="5"/>
+
+    <menuitem
+        id="menu_construction_visitor_logs"
+        name="Visitor Logs"
+        parent="menu_construction_hse"
+        action="action_construction_visitor_log"
+        sequence="6"/>
+
+    <menuitem
+        id="menu_construction_hse_config"
+        name="Configuration"
+        parent="menu_construction_hse"
+        sequence="90"/>
+
+    <menuitem
+        id="menu_construction_permit_types"
+        name="Permit Types"
+        parent="menu_construction_hse_config"
+        action="action_construction_permit_type"
+        sequence="1"/>
+
+    <!-- ==================== FINANCE ==================== -->
+
+    <menuitem
+        id="menu_construction_finance"
+        name="Finance"
+        parent="menu_construction_root"
+        sequence="40"/>
+
+    <menuitem
+        id="menu_construction_estimates"
+        name="Estimates"
+        parent="menu_construction_finance"
+        action="action_construction_estimate"
+        sequence="1"/>
+
+    <menuitem
+        id="menu_construction_budgets"
+        name="Budgets"
+        parent="menu_construction_finance"
+        action="action_construction_budget"
+        sequence="2"/>
+
+    <menuitem
+        id="menu_construction_cost_sheets"
+        name="Cost Sheets"
+        parent="menu_construction_finance"
+        action="action_construction_cost_sheet"
+        sequence="3"/>
+
+    <menuitem
+        id="menu_construction_change_orders"
+        name="Change Orders"
+        parent="menu_construction_finance"
+        action="action_construction_change_order"
+        sequence="4"/>
+
+    <menuitem
+        id="menu_construction_ipcs"
+        name="IPCs"
+        parent="menu_construction_finance"
+        action="action_construction_ipc"
+        sequence="5"/>
+
+    <!-- ==================== SCHEDULING ==================== -->
+
+    <menuitem
+        id="menu_construction_scheduling"
+        name="Scheduling"
+        parent="menu_construction_root"
+        sequence="50"/>
+
+    <menuitem
+        id="menu_construction_wbs"
+        name="WBS"
+        parent="menu_construction_scheduling"
+        action="action_construction_wbs"
+        sequence="1"/>
+
+    <menuitem
+        id="menu_construction_milestones"
+        name="Milestones"
+        parent="menu_construction_scheduling"
+        action="action_construction_milestone"
+        sequence="2"/>
+
+    <!-- ==================== DOCUMENTS ==================== -->
+
+    <menuitem
+        id="menu_construction_documents"
+        name="Documents"
+        parent="menu_construction_root"
+        sequence="60"/>
+
+    <menuitem
+        id="menu_construction_document_register"
+        name="Document Register"
+        parent="menu_construction_documents"
+        action="action_construction_document"
+        sequence="1"/>
+
+    <!-- ==================== PLANT & EQUIPMENT ==================== -->
+
+    <menuitem
+        id="menu_construction_plant"
+        name="Plant &amp; Equipment"
+        parent="menu_construction_root"
+        sequence="70"/>
+
+    <menuitem
+        id="menu_construction_equipment"
+        name="Equipment"
+        parent="menu_construction_plant"
+        action="action_construction_equipment"
+        sequence="1"/>
+
+    <menuitem
+        id="menu_construction_maintenance"
+        name="Maintenance"
+        parent="menu_construction_plant"
+        action="action_construction_equipment_maintenance"
+        sequence="2"/>
+
+</odoo>

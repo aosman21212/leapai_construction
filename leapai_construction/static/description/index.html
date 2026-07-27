@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LeapAI Construction ERP</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #2d2d2d;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* ── Hero ────────────────────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #e65c00 0%, #f9a825 50%, #ff6f00 100%);
+      color: #fff;
+      padding: 56px 40px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-logo {
+      width: 96px;
+      height: 96px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 48px;
+      backdrop-filter: blur(4px);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .hero h1 span { color: #fff3e0; }
+    .hero .subtitle {
+      margin-top: 10px;
+      font-size: 18px;
+      opacity: 0.9;
+      font-weight: 400;
+    }
+    .hero .arabic {
+      margin-top: 6px;
+      font-size: 16px;
+      opacity: 0.75;
+      direction: rtl;
+    }
+    .badges {
+      margin-top: 22px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ── Stats bar ───────────────────────────────────────────────────────── */
+    .stats {
+      background: #1a1a2e;
+      color: #fff;
+      display: flex;
+      justify-content: space-around;
+      padding: 22px 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-size: 28px; font-weight: 800; color: #f9a825; }
+    .stat-lbl { font-size: 12px; opacity: 0.7; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* ── Section ─────────────────────────────────────────────────────────── */
+    .section {
+      padding: 48px 40px;
+    }
+    .section.alt { background: #f8f9fa; }
+    .section-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #e65c00;
+      border-left: 5px solid #f9a825;
+      padding-left: 14px;
+      margin-bottom: 32px;
+    }
+    .section-title .ar {
+      font-size: 15px;
+      color: #666;
+      font-weight: 400;
+      direction: rtl;
+      display: block;
+      margin-top: 3px;
+      padding-left: 0;
+    }
+
+    /* ── Feature grid ────────────────────────────────────────────────────── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border: 1px solid #f0f0f0;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .feature-card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.12); }
+    .feature-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 13.5px;
+      color: #666;
+      line-height: 1.55;
+    }
+    .feature-card .ar-label {
+      font-size: 12px;
+      color: #e65c00;
+      font-weight: 600;
+      direction: rtl;
+      margin-top: 6px;
+    }
+
+    /* ── Module screenshot mockup ─────────────────────────────────────────── */
+    .mockup-section {
+      padding: 48px 40px;
+      background: #1a1a2e;
+      color: #fff;
+    }
+    .mockup-section .section-title { color: #f9a825; border-left-color: #e65c00; }
+    .mockup-section .section-title .ar { color: rgba(255,255,255,0.5); }
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .mockup-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .mockup-bar {
+      background: #e65c00;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 6px;
+    }
+    .mockup-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .mockup-title-bar {
+      color: rgba(255,255,255,0.9);
+      font-size: 12px;
+      margin-left: 8px;
+      font-weight: 600;
+    }
+    .mockup-body {
+      padding: 16px;
+      background: #fafafa;
+    }
+    .mock-header {
+      background: #fff;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      border: 1px solid #e8e8e8;
+    }
+    .mock-h1 { font-size: 18px; font-weight: 700; color: #1a1a2e; }
+    .mock-sub { font-size: 11px; color: #888; margin-top: 2px; }
+    .mock-stat-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .mock-stat {
+      flex: 1;
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #e8e8e8;
+    }
+    .mock-stat .n { font-size: 20px; font-weight: 800; color: #e65c00; }
+    .mock-stat .l { font-size: 10px; color: #888; }
+    .mock-row {
+      background: #fff;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 6px;
+      border: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mock-badge {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+    .badge-active { background: #e8f5e9; color: #2e7d32; }
+    .badge-progress { background: #fff3e0; color: #e65c00; }
+    .badge-done { background: #e3f2fd; color: #1565c0; }
+    .mock-row-text { font-size: 12px; color: #444; flex: 1; }
+    .mock-row-val { font-size: 11px; color: #888; }
+    .mock-progress {
+      background: #fff;
+      border-radius: 6px;
+      padding: 12px;
+      border: 1px solid #f0f0f0;
+      margin-bottom: 6px;
+    }
+    .mock-prog-label { font-size: 11px; color: #666; margin-bottom: 5px; }
+    .mock-prog-bar { background: #f0f0f0; border-radius: 4px; height: 6px; }
+    .mock-prog-fill { background: linear-gradient(90deg, #e65c00, #f9a825); height: 6px; border-radius: 4px; }
+
+    /* ── Modules list ────────────────────────────────────────────────────── */
+    .module-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .module-item {
+      background: #fff;
+      border-radius: 10px;
+      padding: 18px 16px;
+      border-left: 4px solid #e65c00;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .module-item h4 { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+    .module-item p { font-size: 12px; color: #888; margin-top: 4px; }
+
+    /* ── Saudi features ──────────────────────────────────────────────────── */
+    .saudi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .saudi-item {
+      background: #fff;
+      border-radius: 8px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid #f0e0cc;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .saudi-icon { font-size: 24px; }
+    .saudi-text { font-size: 13px; color: #444; font-weight: 500; }
+
+    /* ── Footer ──────────────────────────────────────────────────────────── */
+    .footer {
+      background: #1a1a2e;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 13px;
+    }
+    .footer strong { color: #f9a825; }
+    .footer .version { margin-top: 6px; font-size: 12px; opacity: 0.5; }
+  </style>
+</head>
+<body>
+
+<!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-logo">🏗️</div>
+  <h1>LeapAI <span>Construction</span> ERP</h1>
+  <div class="subtitle">Complete Construction Management for Saudi Arabia</div>
+  <div class="arabic">نظام إدارة المقاولات الشامل للمملكة العربية السعودية</div>
+  <div class="badges">
+    <span class="badge">🇸🇦 Saudi Arabia</span>
+    <span class="badge">Odoo 19</span>
+    <span class="badge">Arabic &amp; English</span>
+    <span class="badge">VAT 15%</span>
+    <span class="badge">Nitaqat</span>
+  </div>
+</div>
+
+<!-- ── Stats ─────────────────────────────────────────────────────────────── -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">8</div>
+    <div class="stat-lbl">Core Modules</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">50+</div>
+    <div class="stat-lbl">Business Features</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">480+</div>
+    <div class="stat-lbl">Arabic Translations</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">100%</div>
+    <div class="stat-lbl">Saudi Compliant</div>
+  </div>
+</div>
+
+<!-- ── Overview ──────────────────────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-title">
+    About this Module
+    <span class="ar">عن هذه الوحدة</span>
+  </div>
+  <p style="font-size:15px; color:#444; max-width:860px; margin-bottom:24px;">
+    <strong>LeapAI Construction ERP</strong> is a comprehensive, fully Arabic-English bilingual construction management system
+    built natively for Odoo 19. Designed specifically for Saudi Arabia's construction industry, it covers every aspect
+    of project delivery — from initial planning and site operations to HSE compliance, financial management, equipment
+    tracking, and document control.
+  </p>
+  <p style="font-size:15px; color:#444; max-width:860px;">
+    Compliant with Saudi Vision 2030 requirements, including Nitaqat workforce classifications, GOSI integration readiness,
+    VAT 15% calculations, and the 6-region administrative structure of the Kingdom.
+  </p>
+</div>
+
+<!-- ── Feature Grid ──────────────────────────────────────────────────────── -->
+<div class="section alt">
+  <div class="section-title">
+    Core Modules
+    <span class="ar">الوحدات الأساسية</span>
+  </div>
+  <div class="feature-grid">
+
+    <div class="feature-card">
+      <span class="feature-icon">📋</span>
+      <h3>Project Management</h3>
+      <p>Complete project lifecycle from initiation to closeout. WBS, milestones, progress tracking, and client billing.</p>
+      <div class="ar-label">إدارة المشاريع</div>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">🏗️</span>
+      <h3>Site Operations</h3>
+      <p>Daily reports, workforce attendance, material requests, subcontractor management, and site diary.</p>
+      <div class="ar-label">العمليات الميدانية</div>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">🦺</span>
+      <h3>HSE Management</h3>
+      <p>Safety incidents, hazard reports, toolbox talks, safety permits, and OSHA-compliant KPI dashboards.</p>
+      <div class="ar-label">إدارة الصحة والسلامة والبيئة</div>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">💰</span>
+      <h3>Financial Management</h3>
+      <p>Budget tracking, cost codes, BOQ billing, progress invoicing, variation orders, and retention management.</p>
+      <div class="ar-label">الإدارة المالية</div>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">📅</span>
+      <h3>Scheduling</h3>
+      <p>Gantt-style task planning, S-curve progress, baseline tracking, delay analysis, and lookahead schedules.</p>
+      <div class="ar-label">الجدولة الزمنية</div>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">🗂️</span>
+      <h3>Document Control</h3>
+      <p>Drawing register, RFI/submittal tracking, revision management, and approval workflow with transmittals.</p>
+      <div class="ar-label">ضبط الوثائق</div>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">🚜</span>
+      <h3>Equipment Management</h3>
+      <p>Fleet tracking, maintenance scheduling, fuel logs, operator assignment, and equipment utilization reports.</p>
+      <div class="ar-label">إدارة المعدات</div>
+    </div>
+
+    <div class="feature-card">
+      <span class="feature-icon">📊</span>
+      <h3>Analytics &amp; Reports</h3>
+      <p>Executive dashboards, earned value analysis, cost-at-completion forecasts, and drill-down reports.</p>
+      <div class="ar-label">التقارير والتحليلات</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Live Mockups ───────────────────────────────────────────────────────── -->
+<div class="mockup-section">
+  <div class="section-title">
+    Interface Preview
+    <span class="ar">معاينة الواجهة</span>
+  </div>
+  <div class="mockup-grid">
+
+    <!-- Project Dashboard mockup -->
+    <div class="mockup-card">
+      <div class="mockup-bar">
+        <div class="mockup-dot" style="background:#ff5f57"></div>
+        <div class="mockup-dot" style="background:#ffbd2e"></div>
+        <div class="mockup-dot" style="background:#28ca41"></div>
+        <span class="mockup-title-bar">Projects — المشاريع</span>
+      </div>
+      <div class="mockup-body">
+        <div class="mock-stat-row">
+          <div class="mock-stat"><div class="n">4</div><div class="l">Active</div></div>
+          <div class="mock-stat"><div class="n" style="color:#f9a825">12</div><div class="l">In Progress</div></div>
+          <div class="mock-stat"><div class="n" style="color:#388e3c">SAR 85M</div><div class="l">Portfolio</div></div>
+        </div>
+        <div class="mock-row">
+          <span class="mock-badge badge-active">Active</span>
+          <span class="mock-row-text">132kV Substation — Riyadh North</span>
+          <span class="mock-row-val">68%</span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-badge badge-progress">On Track</span>
+          <span class="mock-row-text">Road Network — Phase 3</span>
+          <span class="mock-row-val">42%</span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-badge badge-done">Completed</span>
+          <span class="mock-row-text">Commercial Complex — Jeddah</span>
+          <span class="mock-row-val">100%</span>
+        </div>
+        <div class="mock-progress">
+          <div class="mock-prog-label">Overall Portfolio Progress</div>
+          <div class="mock-prog-bar"><div class="mock-prog-fill" style="width:65%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HSE Dashboard mockup -->
+    <div class="mockup-card">
+      <div class="mockup-bar">
+        <div class="mockup-dot" style="background:#ff5f57"></div>
+        <div class="mockup-dot" style="background:#ffbd2e"></div>
+        <div class="mockup-dot" style="background:#28ca41"></div>
+        <span class="mockup-title-bar">HSE Dashboard — السلامة</span>
+      </div>
+      <div class="mockup-body">
+        <div class="mock-stat-row">
+          <div class="mock-stat"><div class="n" style="color:#388e3c">847</div><div class="l">Safe Days</div></div>
+          <div class="mock-stat"><div class="n" style="color:#e65c00">3</div><div class="l">Near Miss</div></div>
+          <div class="mock-stat"><div class="n" style="color:#1565c0">100%</div><div class="l">PPE Rate</div></div>
+        </div>
+        <div class="mock-row">
+          <span class="mock-badge badge-active">Closed</span>
+          <span class="mock-row-text">Toolbox Talk — Riyadh Site</span>
+          <span class="mock-row-val">48 workers</span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-badge badge-progress">Open</span>
+          <span class="mock-row-text">Hazard — Excavation Zone A</span>
+          <span class="mock-row-val">High</span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-badge badge-done">Approved</span>
+          <span class="mock-row-text">Hot Work Permit #HW-047</span>
+          <span class="mock-row-val">Today</span>
+        </div>
+        <div class="mock-progress">
+          <div class="mock-prog-label">Safety Compliance Rate</div>
+          <div class="mock-prog-bar"><div class="mock-prog-fill" style="width:92%; background: linear-gradient(90deg, #388e3c, #66bb6a)"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Financial mockup -->
+    <div class="mockup-card">
+      <div class="mockup-bar">
+        <div class="mockup-dot" style="background:#ff5f57"></div>
+        <div class="mockup-dot" style="background:#ffbd2e"></div>
+        <div class="mockup-dot" style="background:#28ca41"></div>
+        <span class="mockup-title-bar">Financial Summary — الملخص المالي</span>
+      </div>
+      <div class="mockup-body">
+        <div class="mock-header">
+          <div class="mock-h1">Project CON-2025-0001</div>
+          <div class="mock-sub">132kV Substation — Active</div>
+        </div>
+        <div class="mock-row">
+          <span class="mock-row-text">Contract Value</span>
+          <span class="mock-row-val" style="font-weight:700; color:#1a1a2e">SAR 17,800,000</span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-row-text">Total Certified</span>
+          <span class="mock-row-val" style="color:#388e3c">SAR 12,100,000</span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-row-text">Retention Held</span>
+          <span class="mock-row-val" style="color:#e65c00">SAR 1,210,000</span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-row-text">Balance Remaining</span>
+          <span class="mock-row-val" style="color:#1565c0">SAR 5,700,000</span>
+        </div>
+        <div class="mock-progress">
+          <div class="mock-prog-label">Completion — 68%</div>
+          <div class="mock-prog-bar"><div class="mock-prog-fill" style="width:68%"></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Sub Modules ────────────────────────────────────────────────────────── -->
+<div class="section alt">
+  <div class="section-title">
+    What's Included
+    <span class="ar">ما يتضمنه النظام</span>
+  </div>
+  <div class="module-list">
+    <div class="module-item">
+      <h4>📋 Project Management</h4>
+      <p>WBS, milestones, EAC forecasts</p>
+    </div>
+    <div class="module-item">
+      <h4>🏗️ Site Operations</h4>
+      <p>Daily reports, manpower, materials</p>
+    </div>
+    <div class="module-item">
+      <h4>🦺 HSE Safety</h4>
+      <p>Incidents, permits, toolbox talks</p>
+    </div>
+    <div class="module-item">
+      <h4>💰 Finance &amp; BOQ</h4>
+      <p>IPC billing, variation orders, retention</p>
+    </div>
+    <div class="module-item">
+      <h4>📅 Scheduling</h4>
+      <p>Gantt charts, S-curves, baseline</p>
+    </div>
+    <div class="module-item">
+      <h4>🗂️ Documents</h4>
+      <p>Drawings, RFIs, submittals, transmittals</p>
+    </div>
+    <div class="module-item">
+      <h4>🚜 Equipment</h4>
+      <p>Fleet, maintenance, fuel logs</p>
+    </div>
+    <div class="module-item">
+      <h4>📊 Analytics</h4>
+      <p>EVA, dashboards, cost reports</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Saudi Features ────────────────────────────────────────────────────── -->
+<div class="section">
+  <div class="section-title">
+    Saudi Arabia Compliance
+    <span class="ar">الامتثال للمملكة العربية السعودية</span>
+  </div>
+  <div class="saudi-grid">
+    <div class="saudi-item"><span class="saudi-icon">💰</span><span class="saudi-text">VAT 15% (ضريبة القيمة المضافة)</span></div>
+    <div class="saudi-item"><span class="saudi-icon">🏢</span><span class="saudi-text">Nitaqat Colors (ألوان نطاقات)</span></div>
+    <div class="saudi-item"><span class="saudi-icon">📍</span><span class="saudi-text">6 Saudi Regions (6 مناطق)</span></div>
+    <div class="saudi-item"><span class="saudi-icon">🪪</span><span class="saudi-text">Iqama &amp; CR Numbers</span></div>
+    <div class="saudi-item"><span class="saudi-icon">🏦</span><span class="saudi-text">Saudi IBAN Format</span></div>
+    <div class="saudi-item"><span class="saudi-icon">📜</span><span class="saudi-text">Arabic Full Interface</span></div>
+    <div class="saudi-item"><span class="saudi-icon">🛡️</span><span class="saudi-text">GOSI Ready</span></div>
+    <div class="saudi-item"><span class="saudi-icon">⚡</span><span class="saudi-text">SEC / ARAMCO Ready</span></div>
+  </div>
+</div>
+
+<!-- ── Screenshots ───────────────────────────────────────────────────────── -->
+<div class="section" style="background:#0d0d1a; padding:48px 40px;">
+  <div class="section-title" style="color:#f9a825; border-left-color:#e65c00;">
+    Screenshots
+    <span class="ar" style="color:rgba(255,255,255,0.5)">لقطات الشاشة</span>
+  </div>
+
+  <p style="color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:24px;">
+    Realistic UI previews — actual Odoo 19 interface with Arabic &amp; English data
+  </p>
+
+  <div style="display:flex; flex-direction:column; gap:28px;">
+
+    <div style="border-radius:12px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.55);">
+      <div style="background:#111827; padding:10px 16px; display:flex; align-items:center; gap:8px;">
+        <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#ffbd2e;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#28ca41;display:inline-block;"></span>
+        <span style="color:rgba(255,255,255,0.65);font-size:12px;margin-left:8px;font-weight:600;">
+          Projects List View — قائمة المشاريع
+        </span>
+      </div>
+      <img src="screen_projects.png" alt="Projects List View" style="width:100%;display:block;border:0;"/>
+    </div>
+
+    <div style="border-radius:12px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.55);">
+      <div style="background:#111827; padding:10px 16px; display:flex; align-items:center; gap:8px;">
+        <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#ffbd2e;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#28ca41;display:inline-block;"></span>
+        <span style="color:rgba(255,255,255,0.65);font-size:12px;margin-left:8px;font-weight:600;">
+          Project Form — Financial Summary — ملخص مالي العقد
+        </span>
+      </div>
+      <img src="screen_contract.png" alt="Project Financial Summary" style="width:100%;display:block;border:0;"/>
+    </div>
+
+    <div style="border-radius:12px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.55);">
+      <div style="background:#111827; padding:10px 16px; display:flex; align-items:center; gap:8px;">
+        <span style="width:12px;height:12px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#ffbd2e;display:inline-block;"></span>
+        <span style="width:12px;height:12px;border-radius:50%;background:#28ca41;display:inline-block;"></span>
+        <span style="color:rgba(255,255,255,0.65);font-size:12px;margin-left:8px;font-weight:600;">
+          HSE Safety Dashboard — لوحة تحكم السلامة والصحة المهنية
+        </span>
+      </div>
+      <img src="screen_hse.png" alt="HSE Safety Dashboard" style="width:100%;display:block;border:0;"/>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────────────────────────── -->
+<div class="footer">
+  <strong>LeapAI Construction ERP</strong> — Built for Saudi Arabia's Construction Industry<br/>
+  نظام إدارة المقاولات | مبني لصناعة الإنشاءات في المملكة العربية السعودية
+  <div class="version">Version 19.0.1.0.0 · Odoo 19 · © 2025 LeapAI</div>
+</div>
+
+</body>
+</html>

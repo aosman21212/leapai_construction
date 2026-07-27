@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ==================== PERMIT TYPE ==================== -->
+
+    <record id="view_construction_permit_type_list" model="ir.ui.view">
+        <field name="name">construction.permit.type.list</field>
+        <field name="model">construction.permit.type</field>
+        <field name="arch" type="xml">
+            <list string="Permit Types">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_permit_type_form" model="ir.ui.view">
+        <field name="name">construction.permit.type.form</field>
+        <field name="model">construction.permit.type</field>
+        <field name="arch" type="xml">
+            <form string="Permit Type">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_construction_permit_type" model="ir.actions.act_window">
+        <field name="name">Permit Types</field>
+        <field name="res_model">construction.permit.type</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== WORK PERMIT ==================== -->
+
+    <record id="view_construction_work_permit_list" model="ir.ui.view">
+        <field name="name">construction.work.permit.list</field>
+        <field name="model">construction.work.permit</field>
+        <field name="arch" type="xml">
+            <list string="Work Permits" decoration-danger="risk_level == 'high'">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="permit_type_id"/>
+                <field name="contractor_id"/>
+                <field name="location"/>
+                <field name="start_datetime"/>
+                <field name="end_datetime"/>
+                <field name="risk_level" widget="badge" decoration-danger="risk_level == 'high'" decoration-warning="risk_level == 'medium'"/>
+                <field name="state" widget="badge" decoration-success="state == 'active'" decoration-info="state == 'approved'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_work_permit_form" model="ir.ui.view">
+        <field name="name">construction.work.permit.form</field>
+        <field name="model">construction.work.permit</field>
+        <field name="arch" type="xml">
+            <form string="Work Permit">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,submitted,approved,active,expired"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Permit Details">
+                            <field name="project_id"/>
+                            <field name="permit_type_id"/>
+                            <field name="contractor_id"/>
+                            <field name="location"/>
+                            <field name="risk_level"/>
+                        </group>
+                        <group string="Schedule">
+                            <field name="start_datetime"/>
+                            <field name="end_datetime"/>
+                            <field name="issued_by"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Work Description">
+                            <field name="work_description"/>
+                        </page>
+                        <page string="Safety Measures">
+                            <field name="safety_measures"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_work_permit_search" model="ir.ui.view">
+        <field name="name">construction.work.permit.search</field>
+        <field name="model">construction.work.permit</field>
+        <field name="arch" type="xml">
+            <search string="Search Work Permits">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="contractor_id"/>
+                <separator/>
+                <filter name="active" string="Active" domain="[('state','=','active')]"/>
+                <filter name="approved" string="Approved" domain="[('state','=','approved')]"/>
+                <filter name="expired" string="Expired" domain="[('state','=','expired')]"/>
+                <separator/>
+                <filter name="high_risk" string="High Risk" domain="[('risk_level','=','high')]"/>
+                <separator/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_work_permit" model="ir.actions.act_window">
+        <field name="name">Work Permits</field>
+        <field name="res_model">construction.work.permit</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== RISK REGISTER ==================== -->
+
+    <record id="view_construction_risk_register_list" model="ir.ui.view">
+        <field name="name">construction.risk.register.list</field>
+        <field name="model">construction.risk.register</field>
+        <field name="arch" type="xml">
+            <list string="Risk Register" decoration-danger="risk_level == 'Critical'" decoration-warning="risk_level == 'High'">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="category"/>
+                <field name="likelihood"/>
+                <field name="severity"/>
+                <field name="risk_score"/>
+                <field name="risk_level"/>
+                <field name="responsible_id"/>
+                <field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_risk_register_form" model="ir.ui.view">
+        <field name="name">construction.risk.register.form</field>
+        <field name="model">construction.risk.register</field>
+        <field name="arch" type="xml">
+            <form string="Risk Register">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="open,mitigated,closed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group string="Risk Details">
+                            <field name="name"/>
+                            <field name="project_id"/>
+                            <field name="category"/>
+                            <field name="responsible_id"/>
+                            <field name="review_date"/>
+                        </group>
+                        <group string="Risk Assessment">
+                            <field name="likelihood"/>
+                            <field name="severity"/>
+                            <field name="risk_score" readonly="1"/>
+                            <field name="risk_level" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Mitigation Plan">
+                            <field name="mitigation_plan"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_risk_register_search" model="ir.ui.view">
+        <field name="name">construction.risk.register.search</field>
+        <field name="model">construction.risk.register</field>
+        <field name="arch" type="xml">
+            <search string="Search Risks">
+                <field name="name"/>
+                <field name="project_id"/>
+                <separator/>
+                <filter name="open" string="Open" domain="[('status','=','open')]"/>
+                <filter name="mitigated" string="Mitigated" domain="[('status','=','mitigated')]"/>
+                <filter name="closed" string="Closed" domain="[('status','=','closed')]"/>
+                <separator/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_category" string="Category" context="{'group_by': 'category'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_risk_register" model="ir.actions.act_window">
+        <field name="name">Risk Register</field>
+        <field name="res_model">construction.risk.register</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== TOOLBOX TALK ==================== -->
+
+    <record id="view_construction_toolbox_talk_list" model="ir.ui.view">
+        <field name="name">construction.toolbox.talk.list</field>
+        <field name="model">construction.toolbox.talk</field>
+        <field name="arch" type="xml">
+            <list string="Toolbox Talks">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="topic"/>
+                <field name="date"/>
+                <field name="conducted_by"/>
+                <field name="location"/>
+                <field name="attendee_count"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_toolbox_talk_form" model="ir.ui.view">
+        <field name="name">construction.toolbox.talk.form</field>
+        <field name="model">construction.toolbox.talk</field>
+        <field name="arch" type="xml">
+            <form string="Toolbox Talk">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,conducted,signed_off"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Talk Details">
+                            <field name="project_id"/>
+                            <field name="topic"/>
+                            <field name="date"/>
+                            <field name="conducted_by"/>
+                            <field name="location"/>
+                        </group>
+                        <group string="Statistics">
+                            <field name="attendee_count" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Content">
+                            <field name="content"/>
+                        </page>
+                        <page string="Attendees">
+                            <field name="attendee_ids" widget="many2many_tags"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_toolbox_talk_search" model="ir.ui.view">
+        <field name="name">construction.toolbox.talk.search</field>
+        <field name="model">construction.toolbox.talk</field>
+        <field name="arch" type="xml">
+            <search string="Search Toolbox Talks">
+                <field name="name"/>
+                <field name="topic"/>
+                <field name="project_id"/>
+                <separator/>
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="conducted" string="Conducted" domain="[('state','=','conducted')]"/>
+                <filter name="signed_off" string="Signed Off" domain="[('state','=','signed_off')]"/>
+                <separator/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_date" string="Date" context="{'group_by': 'date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_toolbox_talk" model="ir.actions.act_window">
+        <field name="name">Toolbox Talks</field>
+        <field name="res_model">construction.toolbox.talk</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== SAFETY OBSERVATION ==================== -->
+
+    <record id="view_construction_safety_observation_list" model="ir.ui.view">
+        <field name="name">construction.safety.observation.list</field>
+        <field name="model">construction.safety.observation</field>
+        <field name="arch" type="xml">
+            <list string="Safety Observations">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="observation_type"/>
+                <field name="location"/>
+                <field name="observed_by"/>
+                <field name="date_observed"/>
+                <field name="assigned_to"/>
+                <field name="date_due"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_safety_observation_form" model="ir.ui.view">
+        <field name="name">construction.safety.observation.form</field>
+        <field name="model">construction.safety.observation</field>
+        <field name="arch" type="xml">
+            <form string="Safety Observation">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="open,in_progress,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Observation Details">
+                            <field name="project_id"/>
+                            <field name="observation_type"/>
+                            <field name="location"/>
+                            <field name="observed_by"/>
+                            <field name="date_observed"/>
+                        </group>
+                        <group string="Action Details">
+                            <field name="assigned_to"/>
+                            <field name="date_due"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Corrective Action">
+                            <field name="corrective_action"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_safety_observation_search" model="ir.ui.view">
+        <field name="name">construction.safety.observation.search</field>
+        <field name="model">construction.safety.observation</field>
+        <field name="arch" type="xml">
+            <search string="Search Safety Observations">
+                <field name="name"/>
+                <field name="project_id"/>
+                <separator/>
+                <filter name="open" string="Open" domain="[('state','=','open')]"/>
+                <filter name="in_progress" string="In Progress" domain="[('state','=','in_progress')]"/>
+                <filter name="closed" string="Closed" domain="[('state','=','closed')]"/>
+                <separator/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_type" string="Type" context="{'group_by': 'observation_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_safety_observation" model="ir.actions.act_window">
+        <field name="name">Safety Observations</field>
+        <field name="res_model">construction.safety.observation</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== SITE ATTENDANCE ==================== -->
+
+    <record id="view_construction_site_attendance_list" model="ir.ui.view">
+        <field name="name">construction.site.attendance.list</field>
+        <field name="model">construction.site.attendance</field>
+        <field name="arch" type="xml">
+            <list string="Site Attendance">
+                <field name="project_id"/>
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="trade"/>
+                <field name="contractor"/>
+                <field name="check_in"/>
+                <field name="check_out"/>
+                <field name="hours_worked"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_site_attendance_form" model="ir.ui.view">
+        <field name="name">construction.site.attendance.form</field>
+        <field name="model">construction.site.attendance</field>
+        <field name="arch" type="xml">
+            <form string="Site Attendance">
+                <sheet>
+                    <group>
+                        <group string="Attendance Details">
+                            <field name="project_id"/>
+                            <field name="date"/>
+                            <field name="employee_id"/>
+                            <field name="trade"/>
+                            <field name="contractor"/>
+                        </group>
+                        <group string="Time">
+                            <field name="check_in"/>
+                            <field name="check_out"/>
+                            <field name="hours_worked" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_site_attendance_search" model="ir.ui.view">
+        <field name="name">construction.site.attendance.search</field>
+        <field name="model">construction.site.attendance</field>
+        <field name="arch" type="xml">
+            <search string="Search Attendance">
+                <field name="employee_id"/>
+                <field name="project_id"/>
+                <field name="contractor"/>
+                <separator/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_date" string="Date" context="{'group_by': 'date'}"/>
+                    <filter name="group_employee" string="Employee" context="{'group_by': 'employee_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_site_attendance" model="ir.actions.act_window">
+        <field name="name">Site Attendance</field>
+        <field name="res_model">construction.site.attendance</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- ==================== VISITOR LOG ==================== -->
+
+    <record id="view_construction_visitor_log_list" model="ir.ui.view">
+        <field name="name">construction.visitor.log.list</field>
+        <field name="model">construction.visitor.log</field>
+        <field name="arch" type="xml">
+            <list string="Visitor Log">
+                <field name="name"/>
+                <field name="project_id"/>
+                <field name="visitor_name"/>
+                <field name="company"/>
+                <field name="purpose"/>
+                <field name="host_id"/>
+                <field name="check_in"/>
+                <field name="check_out"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_construction_visitor_log_form" model="ir.ui.view">
+        <field name="name">construction.visitor.log.form</field>
+        <field name="model">construction.visitor.log</field>
+        <field name="arch" type="xml">
+            <form string="Visitor Log">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="checked_in,checked_out"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Visitor Details">
+                            <field name="project_id"/>
+                            <field name="visitor_name"/>
+                            <field name="company"/>
+                            <field name="purpose"/>
+                            <field name="host_id"/>
+                        </group>
+                        <group string="ID &amp; Badge">
+                            <field name="id_type"/>
+                            <field name="id_number"/>
+                            <field name="badge_number"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Visit Times">
+                            <field name="check_in"/>
+                            <field name="check_out"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_construction_visitor_log_search" model="ir.ui.view">
+        <field name="name">construction.visitor.log.search</field>
+        <field name="model">construction.visitor.log</field>
+        <field name="arch" type="xml">
+            <search string="Search Visitor Logs">
+                <field name="visitor_name"/>
+                <field name="project_id"/>
+                <field name="company"/>
+                <separator/>
+                <filter name="checked_in" string="Checked In" domain="[('state','=','checked_in')]"/>
+                <filter name="checked_out" string="Checked Out" domain="[('state','=','checked_out')]"/>
+                <separator/>
+                <group>
+                    <filter name="group_project" string="Project" context="{'group_by': 'project_id'}"/>
+                    <filter name="group_date" string="Date" context="{'group_by': 'check_in:date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_construction_visitor_log" model="ir.actions.act_window">
+        <field name="name">Visitor Logs</field>
+        <field name="res_model">construction.visitor.log</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

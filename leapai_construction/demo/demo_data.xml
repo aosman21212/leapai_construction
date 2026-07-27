@@ -1,0 +1,948 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+
+<!-- ============================================================
+     PROJECT TYPES
+============================================================ -->
+<record id="project_type_residential" model="construction.project.type">
+    <field name="name">Residential</field>
+    <field name="code">RES</field>
+    <field name="description">Villas, apartments, and housing complexes</field>
+</record>
+
+<record id="project_type_commercial" model="construction.project.type">
+    <field name="name">Commercial</field>
+    <field name="code">COM</field>
+    <field name="description">Offices, malls, retail and mixed-use developments</field>
+</record>
+
+<record id="project_type_infrastructure" model="construction.project.type">
+    <field name="name">Infrastructure</field>
+    <field name="code">INF</field>
+    <field name="description">Roads, bridges, utilities and public works</field>
+</record>
+
+<record id="project_type_industrial" model="construction.project.type">
+    <field name="name">Industrial</field>
+    <field name="code">IND</field>
+    <field name="description">Factories, warehouses and industrial facilities</field>
+</record>
+
+<!-- ============================================================
+     PERMIT TYPES
+============================================================ -->
+<record id="permit_type_hot_work" model="construction.permit.type">
+    <field name="name">Hot Work Permit</field>
+    <field name="code">HWP</field>
+    <field name="description">Welding, cutting, grinding and other hot work operations</field>
+</record>
+
+<record id="permit_type_confined_space" model="construction.permit.type">
+    <field name="name">Confined Space Entry</field>
+    <field name="code">CSE</field>
+    <field name="description">Entry into tanks, tunnels, manholes and confined areas</field>
+</record>
+
+<record id="permit_type_working_height" model="construction.permit.type">
+    <field name="name">Working at Height</field>
+    <field name="code">WAH</field>
+    <field name="description">Work above 2 metres requiring fall protection</field>
+</record>
+
+<record id="permit_type_electrical" model="construction.permit.type">
+    <field name="name">Electrical Isolation</field>
+    <field name="code">EIP</field>
+    <field name="description">Live electrical work and isolation procedures</field>
+</record>
+
+<!-- ============================================================
+     PROJECTS
+============================================================ -->
+<record id="project_skyline_tower" model="construction.project">
+    <field name="name">Skyline Tower — Mixed Use Complex</field>
+    <field name="project_type_id" ref="project_type_commercial"/>
+    <field name="client_id" ref="base.res_partner_2"/>
+    <field name="site_address">King Fahad Road, Riyadh, Saudi Arabia</field>
+    <field name="start_date" eval="(DateTime.now() - relativedelta(months=8)).strftime('%Y-%m-%d')"/>
+    <field name="end_date" eval="(DateTime.now() + relativedelta(months=16)).strftime('%Y-%m-%d')"/>
+    <field name="actual_start" eval="(DateTime.now() - relativedelta(months=7)).strftime('%Y-%m-%d')"/>
+    <field name="project_manager_id" ref="base.user_admin"/>
+    <field name="site_engineer_id" ref="base.user_demo"/>
+    <field name="state">in_progress</field>
+    <field name="contract_value">45000000</field>
+    <field name="description">&lt;p&gt;A 35-storey mixed-use tower comprising commercial offices (floors 1-20), serviced apartments (floors 21-32), and a luxury sky lounge on the top 3 floors. Includes a 4-level underground car park for 600 vehicles.&lt;/p&gt;</field>
+</record>
+
+<record id="project_green_valley" model="construction.project">
+    <field name="name">Green Valley Residential Estate</field>
+    <field name="project_type_id" ref="project_type_residential"/>
+    <field name="client_id" ref="base.res_partner_3"/>
+    <field name="site_address">Northern Ring Road, Jeddah, Saudi Arabia</field>
+    <field name="start_date" eval="(DateTime.now() - relativedelta(months=3)).strftime('%Y-%m-%d')"/>
+    <field name="end_date" eval="(DateTime.now() + relativedelta(months=21)).strftime('%Y-%m-%d')"/>
+    <field name="actual_start" eval="(DateTime.now() - relativedelta(months=2)).strftime('%Y-%m-%d')"/>
+    <field name="project_manager_id" ref="base.user_admin"/>
+    <field name="state">in_progress</field>
+    <field name="contract_value">18500000</field>
+    <field name="description">&lt;p&gt;Development of 120 luxury villas with clubhouse, swimming pool, landscaped gardens, and a community retail strip. Phase 1 covers 60 villas.&lt;/p&gt;</field>
+</record>
+
+<record id="project_highway_bypass" model="construction.project">
+    <field name="name">Eastern Highway Bypass — Phase 2</field>
+    <field name="project_type_id" ref="project_type_infrastructure"/>
+    <field name="client_id" ref="base.res_partner_4"/>
+    <field name="site_address">Eastern Province, Dammam, Saudi Arabia</field>
+    <field name="start_date" eval="(DateTime.now() - relativedelta(months=14)).strftime('%Y-%m-%d')"/>
+    <field name="end_date" eval="(DateTime.now() - relativedelta(months=2)).strftime('%Y-%m-%d')"/>
+    <field name="actual_start" eval="(DateTime.now() - relativedelta(months=13)).strftime('%Y-%m-%d')"/>
+    <field name="actual_end" eval="(DateTime.now() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+    <field name="project_manager_id" ref="base.user_admin"/>
+    <field name="state">completed</field>
+    <field name="contract_value">32000000</field>
+    <field name="description">&lt;p&gt;Construction of 24 km dual-carriageway bypass including 3 interchanges, 2 overpasses, and associated drainage and lighting works.&lt;/p&gt;</field>
+</record>
+
+<record id="project_warehouse_complex" model="construction.project">
+    <field name="name">Al-Faisaliah Logistics Warehouse Complex</field>
+    <field name="project_type_id" ref="project_type_industrial"/>
+    <field name="client_id" ref="base.res_partner_12"/>
+    <field name="site_address">Riyadh Industrial City, Saudi Arabia</field>
+    <field name="start_date" eval="(DateTime.now() + relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+    <field name="end_date" eval="(DateTime.now() + relativedelta(months=13)).strftime('%Y-%m-%d')"/>
+    <field name="project_manager_id" ref="base.user_admin"/>
+    <field name="state">draft</field>
+    <field name="contract_value">9750000</field>
+    <field name="description">&lt;p&gt;Three warehouses totalling 25,000 sqm with ancillary offices, truck docks, and a solar rooftop installation. Pre-engineered steel structure.&lt;/p&gt;</field>
+</record>
+
+<!-- ============================================================
+     RFIs
+============================================================ -->
+<record id="rfi_001" model="construction.rfi">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="subject">Structural slab thickness clarification — Level 15</field>
+    <field name="description">&lt;p&gt;The structural drawings show 200mm slab at Level 15 however the specification document refers to 250mm for transfer slabs. Please confirm the correct thickness and reinforcement detail.&lt;/p&gt;</field>
+    <field name="requested_by" ref="base.user_demo"/>
+    <field name="assigned_to" ref="base.user_admin"/>
+    <field name="date_requested" eval="(DateTime.now() - relativedelta(days=12)).strftime('%Y-%m-%d')"/>
+    <field name="date_required" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+    <field name="date_responded" eval="(DateTime.now() - relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+    <field name="state">responded</field>
+    <field name="priority">1</field>
+    <field name="response">&lt;p&gt;Confirmed 250mm transfer slab applies at Level 15. Structural drawing Rev C will be issued within 3 working days with updated reinforcement details.&lt;/p&gt;</field>
+</record>
+
+<record id="rfi_002" model="construction.rfi">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="subject">Curtain wall anchor spacing — North elevation</field>
+    <field name="description">&lt;p&gt;Curtain wall shop drawings submitted by subcontractor show 1500mm anchor spacing. Structural engineer approval required prior to fabrication.&lt;/p&gt;</field>
+    <field name="requested_by" ref="base.user_demo"/>
+    <field name="assigned_to" ref="base.user_admin"/>
+    <field name="date_requested" eval="(DateTime.now() - relativedelta(days=6)).strftime('%Y-%m-%d')"/>
+    <field name="date_required" eval="(DateTime.now() + relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+    <field name="state">under_review</field>
+    <field name="priority">2</field>
+</record>
+
+<record id="rfi_003" model="construction.rfi">
+    <field name="project_id" ref="project_green_valley"/>
+    <field name="subject">Foundation depth — Plots 45-60 (soft soil zone)</field>
+    <field name="description">&lt;p&gt;Soil investigation report indicates soft clay layer between 1.8m and 3.2m in Plots 45-60. Current design shows 1.5m strip foundation. Engineer review required.&lt;/p&gt;</field>
+    <field name="requested_by" ref="base.user_demo"/>
+    <field name="assigned_to" ref="base.user_admin"/>
+    <field name="date_requested" eval="(DateTime.now() - relativedelta(days=4)).strftime('%Y-%m-%d')"/>
+    <field name="date_required" eval="(DateTime.now() + relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+    <field name="state">submitted</field>
+    <field name="priority">2</field>
+</record>
+
+<!-- ============================================================
+     NCRs
+============================================================ -->
+<record id="ncr_001" model="construction.ncr">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="subject">Concrete cube test failure — Level 8 slab pour</field>
+    <field name="description">&lt;p&gt;Cube test results for concrete pour dated &lt;earlier this month&gt; show 28-day compressive strength of 24.5 MPa against specified 30 MPa (C30 grade). 3 of 6 cubes failed.&lt;/p&gt;</field>
+    <field name="raised_by" ref="base.user_admin"/>
+    <field name="assigned_to" ref="base.user_demo"/>
+    <field name="date_raised" eval="(DateTime.now() - relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+    <field name="date_due" eval="(DateTime.now() - relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+    <field name="state">in_progress</field>
+    <field name="severity">high</field>
+    <field name="root_cause">Incorrect water-cement ratio at batching plant. Plant operator deviated from approved mix design.</field>
+    <field name="corrective_action">Core samples to be extracted from affected slab area. Structural engineer to assess load-bearing adequacy. Batching plant to be recalibrated and mix design resubmitted for approval.</field>
+    <field name="preventive_action">Mandatory QC officer presence at batching plant for all future pours. Slump test and cube sampling to be increased to every 30m3.</field>
+</record>
+
+<record id="ncr_002" model="construction.ncr">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="subject">Rebar cover inadequate — Level 10 columns</field>
+    <field name="description">&lt;p&gt;Pre-pour inspection of Level 10 columns shows concrete cover of 25mm against specified 40mm for exposed columns. Spacers missing on 6 column cages.&lt;/p&gt;</field>
+    <field name="raised_by" ref="base.user_admin"/>
+    <field name="assigned_to" ref="base.user_demo"/>
+    <field name="date_raised" eval="(DateTime.now() - relativedelta(days=3)).strftime('%Y-%m-%d')"/>
+    <field name="date_due" eval="(DateTime.now() + relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+    <field name="state">open</field>
+    <field name="severity">medium</field>
+    <field name="root_cause">Subcontractor steel fixers not following approved method statement. Spacers not supplied to site in sufficient quantity.</field>
+    <field name="corrective_action">All affected cages to be reworked with correct 40mm plastic spacers before pour proceeds. Pour hold point to remain in place.</field>
+</record>
+
+<record id="ncr_003" model="construction.ncr">
+    <field name="project_id" ref="project_green_valley"/>
+    <field name="subject">Brickwork alignment deviation — Villa Block A</field>
+    <field name="description">&lt;p&gt;External brickwork on Villa Block A shows plumb deviation of 18mm over 3m height, exceeding the permitted tolerance of 10mm per BS 5628.</field>
+    <field name="raised_by" ref="base.user_demo"/>
+    <field name="assigned_to" ref="base.user_demo"/>
+    <field name="date_raised" eval="(DateTime.now() - relativedelta(days=15)).strftime('%Y-%m-%d')"/>
+    <field name="date_due" eval="(DateTime.now() - relativedelta(days=8)).strftime('%Y-%m-%d')"/>
+    <field name="date_closed" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+    <field name="state">closed</field>
+    <field name="severity">low</field>
+    <field name="root_cause">Inadequate use of plumb bob during laying. Foreman not conducting regular checks.</field>
+    <field name="corrective_action">Affected course (approx. 2.5m2) demolished and relaid. Laser level provided to team.</field>
+    <field name="preventive_action">Daily plumb checks by foreman to be recorded on daily log. QC inspector to verify every 5 courses.</field>
+</record>
+
+<!-- ============================================================
+     DAILY LOGS
+============================================================ -->
+<record id="daily_log_001" model="construction.daily.log">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="date" eval="(DateTime.now() - relativedelta(days=1)).strftime('%Y-%m-%d')"/>
+    <field name="weather">sunny</field>
+    <field name="temperature">38.5</field>
+    <field name="prepared_by" ref="base.user_demo"/>
+    <field name="state">submitted</field>
+    <field name="activities_summary">Concrete pour Level 12 slab (280m3) completed. Formwork stripping Level 9 in progress. Rebar installation Level 13 commenced. MEP conduit installation floors 7-9 ongoing.</field>
+    <field name="safety_remarks">Heat stress advisory issued. Additional water stations and rest shelters deployed. No incidents recorded.</field>
+</record>
+
+<record id="daily_log_manpower_001a" model="construction.daily.log.manpower">
+    <field name="log_id" ref="daily_log_001"/>
+    <field name="trade">Concrete / Formwork</field>
+    <field name="contractor">Al-Rajhi Construction</field>
+    <field name="count">45</field>
+    <field name="hours">10</field>
+</record>
+
+<record id="daily_log_manpower_001b" model="construction.daily.log.manpower">
+    <field name="log_id" ref="daily_log_001"/>
+    <field name="trade">Steel Fixers</field>
+    <field name="contractor">Saudi Steel Works</field>
+    <field name="count">32</field>
+    <field name="hours">10</field>
+</record>
+
+<record id="daily_log_manpower_001c" model="construction.daily.log.manpower">
+    <field name="log_id" ref="daily_log_001"/>
+    <field name="trade">MEP (Electrical)</field>
+    <field name="contractor">Gulf MEP Contractors</field>
+    <field name="count">18</field>
+    <field name="hours">9</field>
+</record>
+
+<record id="daily_log_equip_001a" model="construction.daily.log.equipment">
+    <field name="log_id" ref="daily_log_001"/>
+    <field name="equipment_name">Tower Crane TC-01</field>
+    <field name="type">Tower Crane</field>
+    <field name="count">1</field>
+    <field name="hours">10</field>
+</record>
+
+<record id="daily_log_equip_001b" model="construction.daily.log.equipment">
+    <field name="log_id" ref="daily_log_001"/>
+    <field name="equipment_name">Concrete Pump</field>
+    <field name="type">Boom Pump</field>
+    <field name="count">2</field>
+    <field name="hours">8</field>
+</record>
+
+<record id="daily_log_002" model="construction.daily.log">
+    <field name="project_id" ref="project_green_valley"/>
+    <field name="date" eval="(DateTime.now() - relativedelta(days=1)).strftime('%Y-%m-%d')"/>
+    <field name="weather">partly_cloudy</field>
+    <field name="temperature">32.0</field>
+    <field name="prepared_by" ref="base.user_demo"/>
+    <field name="state">approved</field>
+    <field name="activities_summary">Foundation excavation Plots 21-30 completed. Lean concrete blinding poured Plots 15-20. Rebar fixing foundation Plots 10-14 ongoing.</field>
+    <field name="safety_remarks">All personnel inducted. PPE compliance 100%. No incidents.</field>
+</record>
+
+<!-- ============================================================
+     SHOP DRAWINGS
+============================================================ -->
+<record id="sd_001" model="construction.shop.drawing">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="drawing_number">SKY-STR-SD-001</field>
+    <field name="title">Typical Floor Slab Reinforcement Plan — Levels 5-25</field>
+    <field name="revision">B</field>
+    <field name="discipline">structural</field>
+    <field name="submitted_date" eval="(DateTime.now() - relativedelta(days=20)).strftime('%Y-%m-%d')"/>
+    <field name="review_date" eval="(DateTime.now() - relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+    <field name="status">approved</field>
+    <field name="reviewer_id" ref="base.user_admin"/>
+    <field name="comments">Approved with minor annotations. Contractor to incorporate comments in Rev C for record purposes only.</field>
+</record>
+
+<record id="sd_002" model="construction.shop.drawing">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="drawing_number">SKY-MEP-SD-015</field>
+    <field name="title">Chilled Water Pipework Layout — Level 1-5 Plant Room</field>
+    <field name="revision">A</field>
+    <field name="discipline">mechanical</field>
+    <field name="submitted_date" eval="(DateTime.now() - relativedelta(days=8)).strftime('%Y-%m-%d')"/>
+    <field name="status">under_review</field>
+    <field name="reviewer_id" ref="base.user_admin"/>
+</record>
+
+<record id="sd_003" model="construction.shop.drawing">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="drawing_number">SKY-ARC-SD-007</field>
+    <field name="title">Curtain Wall System — North Elevation Details</field>
+    <field name="revision">A</field>
+    <field name="discipline">architectural</field>
+    <field name="submitted_date" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+    <field name="status">submitted</field>
+    <field name="reviewer_id" ref="base.user_admin"/>
+</record>
+
+<!-- ============================================================
+     TRANSMITTALS
+============================================================ -->
+<record id="transmittal_001" model="construction.transmittal">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="transmittal_date" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+    <field name="to_company">Acme Corporation (Client)</field>
+    <field name="to_contact">Project Director</field>
+    <field name="from_user_id" ref="base.user_admin"/>
+    <field name="subject">Shop Drawings Submittal — Structural Batch 03</field>
+    <field name="purpose">for_approval</field>
+    <field name="state">sent</field>
+    <field name="remarks">Please review and return approved/commented drawings within 14 days as per contract clause 6.3.</field>
+</record>
+
+<record id="transmittal_line_001a" model="construction.transmittal.line">
+    <field name="transmittal_id" ref="transmittal_001"/>
+    <field name="document_ref">SKY-STR-SD-018</field>
+    <field name="description">Core Wall Reinforcement — Levels 20-35</field>
+    <field name="revision">A</field>
+    <field name="copies">3</field>
+    <field name="document_type">Shop Drawing</field>
+</record>
+
+<record id="transmittal_line_001b" model="construction.transmittal.line">
+    <field name="transmittal_id" ref="transmittal_001"/>
+    <field name="document_ref">SKY-STR-SD-019</field>
+    <field name="description">Transfer Beam Details — Level 15</field>
+    <field name="revision">B</field>
+    <field name="copies">3</field>
+    <field name="document_type">Shop Drawing</field>
+</record>
+
+<!-- ============================================================
+     WORK PERMITS
+============================================================ -->
+<record id="permit_001" model="construction.work.permit">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="permit_type_id" ref="permit_type_hot_work"/>
+    <field name="contractor_id" ref="base.res_partner_5"/>
+    <field name="location">Level 8 — Column Grid C4-D6</field>
+    <field name="work_description">Welding of embedded plates for curtain wall anchors and steel connection plates at columns C4, C5, D4, D5, D6.</field>
+    <field name="start_datetime" eval="(DateTime.now()).strftime('%Y-%m-%d 07:00:00')"/>
+    <field name="end_datetime" eval="(DateTime.now()).strftime('%Y-%m-%d 17:00:00')"/>
+    <field name="issued_by" ref="base.user_admin"/>
+    <field name="state">active</field>
+    <field name="risk_level">medium</field>
+    <field name="safety_measures">Fire watch to be maintained throughout operation. Fire extinguisher (CO2, 6kg) to be positioned within 3m. Hot work blankets to protect adjacent materials. Daily atmosphere check before work commences.</field>
+</record>
+
+<record id="permit_002" model="construction.work.permit">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="permit_type_id" ref="permit_type_working_height"/>
+    <field name="contractor_id" ref="base.res_partner_6"/>
+    <field name="location">External Scaffolding — Levels 10-15 North Face</field>
+    <field name="work_description">Erection of external scaffolding system for façade works. Maximum working height 52m.</field>
+    <field name="start_datetime" eval="(DateTime.now() + relativedelta(days=1)).strftime('%Y-%m-%d 06:00:00')"/>
+    <field name="end_datetime" eval="(DateTime.now() + relativedelta(days=5)).strftime('%Y-%m-%d 18:00:00')"/>
+    <field name="issued_by" ref="base.user_admin"/>
+    <field name="state">approved</field>
+    <field name="risk_level">high</field>
+    <field name="safety_measures">Full body harness mandatory. Lifeline anchors to be installed before work begins. Exclusion zone below scaffolding. Daily pre-use inspection of all harnesses. Emergency rescue plan to be briefed to all workers.</field>
+</record>
+
+<record id="permit_003" model="construction.work.permit">
+    <field name="project_id" ref="project_green_valley"/>
+    <field name="permit_type_id" ref="permit_type_confined_space"/>
+    <field name="contractor_id" ref="base.res_partner_1"/>
+    <field name="location">Stormwater Manhole MH-07, Plot 32</field>
+    <field name="work_description">Inspection and cleaning of stormwater manhole. Depth 4.2m.</field>
+    <field name="start_datetime" eval="(DateTime.now() - relativedelta(days=3)).strftime('%Y-%m-%d 08:00:00')"/>
+    <field name="end_datetime" eval="(DateTime.now() - relativedelta(days=3)).strftime('%Y-%m-%d 14:00:00')"/>
+    <field name="issued_by" ref="base.user_admin"/>
+    <field name="state">expired</field>
+    <field name="risk_level">high</field>
+    <field name="safety_measures">Gas testing (O2, H2S, CO, LEL) before and every 30 min during work. Attendant stationed at top at all times. Rescue tripod and harness on standby. Rescue plan signed by HSE officer.</field>
+</record>
+
+<!-- ============================================================
+     RISK REGISTER
+============================================================ -->
+<record id="risk_001" model="construction.risk.register">
+    <field name="name">Fall from Height</field>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="category">safety</field>
+    <field name="description">Workers operating at unprotected edges or on scaffolding above 2m without adequate fall protection.</field>
+    <field name="likelihood">3</field>
+    <field name="severity">5</field>
+    <field name="mitigation_plan">Mandatory full-body harness for all work above 2m. Permanent edge protection installed before floor level is accessed. PTW required for scaffolding erection/dismantling. Daily safety walks by HSE officer.</field>
+    <field name="responsible_id" ref="base.user_admin"/>
+    <field name="status">mitigated</field>
+    <field name="review_date" eval="(DateTime.now() + relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+</record>
+
+<record id="risk_002" model="construction.risk.register">
+    <field name="name">Concrete Pump / Tower Crane Failure</field>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="category">safety</field>
+    <field name="description">Mechanical failure of tower crane or concrete pump boom during lifting/pumping operations causing injury or structural damage.</field>
+    <field name="likelihood">2</field>
+    <field name="severity">5</field>
+    <field name="mitigation_plan">Monthly third-party inspection of all lifting equipment. Operator certifications checked monthly. Exclusion zones enforced during lifting. Boom pump inspected before each pour. Emergency response plan posted at site office.</field>
+    <field name="responsible_id" ref="base.user_admin"/>
+    <field name="status">mitigated</field>
+    <field name="review_date" eval="(DateTime.now() + relativedelta(months=2)).strftime('%Y-%m-%d')"/>
+</record>
+
+<record id="risk_003" model="construction.risk.register">
+    <field name="name">Cost Overrun — Material Price Escalation</field>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="category">financial</field>
+    <field name="description">Global steel and concrete price increases exceeding contract allowances, resulting in budget overrun.</field>
+    <field name="likelihood">3</field>
+    <field name="severity">3</field>
+    <field name="mitigation_plan">Price escalation clause included in subcontracts. Early procurement of major material packages. Monthly cost review against budget. Change order mechanism triggered if material cost exceeds 5% variance.</field>
+    <field name="responsible_id" ref="base.user_admin"/>
+    <field name="status">open</field>
+    <field name="review_date" eval="(DateTime.now() + relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+</record>
+
+<record id="risk_004" model="construction.risk.register">
+    <field name="name">Schedule Delay — Delayed Design Approvals</field>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="category">schedule</field>
+    <field name="description">Client/consultant taking longer than contractual 14 days to approve shop drawings, causing work stoppages and critical path delays.</field>
+    <field name="likelihood">4</field>
+    <field name="severity">3</field>
+    <field name="mitigation_plan">Submittal register maintained with contractual due dates tracked weekly. Formal delay notices issued immediately upon late responses. Recovery programme submitted if delay exceeds 5 working days.</field>
+    <field name="responsible_id" ref="base.user_admin"/>
+    <field name="status">open</field>
+    <field name="review_date" eval="(DateTime.now() + relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+</record>
+
+<!-- ============================================================
+     TOOLBOX TALKS
+============================================================ -->
+<record id="tbt_001" model="construction.toolbox.talk">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="topic">Heat Stress Awareness — Summer Working Conditions</field>
+    <field name="date" eval="(DateTime.now() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+    <field name="conducted_by" ref="base.user_admin"/>
+    <field name="location">Site Office Meeting Room</field>
+    <field name="content">&lt;h3&gt;Key Points Covered&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;Signs and symptoms of heat exhaustion and heat stroke&lt;/li&gt;&lt;li&gt;Mandatory 15-minute rest breaks every 45 minutes during summer hours&lt;/li&gt;&lt;li&gt;Water intake requirements: minimum 250ml every 20 minutes&lt;/li&gt;&lt;li&gt;Buddy system: workers to monitor each other for symptoms&lt;/li&gt;&lt;li&gt;Emergency response: first aid station locations and contact numbers&lt;/li&gt;&lt;/ul&gt;</field>
+    <field name="state">signed_off</field>
+</record>
+
+<record id="tbt_002" model="construction.toolbox.talk">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="topic">Crane Safety and Lifting Operations</field>
+    <field name="date" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+    <field name="conducted_by" ref="base.user_admin"/>
+    <field name="location">Tower Crane Base Area</field>
+    <field name="content">&lt;h3&gt;Key Points Covered&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;No person to stand under a suspended load at any time&lt;/li&gt;&lt;li&gt;Exclusion zones: minimum 1.5x the lift radius must be clear&lt;/li&gt;&lt;li&gt;All lifting accessories (slings, shackles) must be tagged and inspected&lt;/li&gt;&lt;li&gt;Banksman / signaller must be certified and wear hi-vis vest&lt;/li&gt;&lt;li&gt;Crane pre-use checklist to be completed before each shift&lt;/li&gt;&lt;/ul&gt;</field>
+    <field name="state">conducted</field>
+</record>
+
+<!-- ============================================================
+     SAFETY OBSERVATIONS
+============================================================ -->
+<record id="so_001" model="construction.safety.observation">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="observation_type">unsafe_condition</field>
+    <field name="description">Unguarded floor opening (approx. 600x600mm) at Level 11 stairwell opening. No cover, no barrier, no warning sign. Trip/fall hazard.</field>
+    <field name="location">Level 11 — Stairwell Opening Grid B3</field>
+    <field name="observed_by" ref="base.user_admin"/>
+    <field name="date_observed" eval="(DateTime.now() - relativedelta(days=2)).strftime('%Y-%m-%d')"/>
+    <field name="assigned_to" ref="base.user_demo"/>
+    <field name="date_due" eval="(DateTime.now() - relativedelta(days=1)).strftime('%Y-%m-%d')"/>
+    <field name="state">closed</field>
+    <field name="corrective_action">Opening covered with 18mm plywood secured with screws. Warning tape applied around perimeter. Area supervisor reminded of obligation to maintain covers.</field>
+</record>
+
+<record id="so_002" model="construction.safety.observation">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="observation_type">unsafe_act</field>
+    <field name="description">Worker operating angle grinder without face shield — using safety glasses only. Grinding sparks reaching nearby workers' faces.</field>
+    <field name="location">Level 13 — Steel fixing area</field>
+    <field name="observed_by" ref="base.user_demo"/>
+    <field name="date_observed" eval="DateTime.now().strftime('%Y-%m-%d')"/>
+    <field name="assigned_to" ref="base.user_admin"/>
+    <field name="date_due" eval="(DateTime.now() + relativedelta(days=1)).strftime('%Y-%m-%d')"/>
+    <field name="state">open</field>
+</record>
+
+<!-- ============================================================
+     VISITOR LOG
+============================================================ -->
+<record id="visitor_001" model="construction.visitor.log">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="visitor_name">Ahmed Al-Rashid</field>
+    <field name="company">Acme Corporation</field>
+    <field name="purpose">Client monthly site inspection</field>
+    <field name="host_id" ref="base.user_admin"/>
+    <field name="check_in" eval="(DateTime.now() - relativedelta(days=1)).strftime('%Y-%m-%d 10:00:00')"/>
+    <field name="check_out" eval="(DateTime.now() - relativedelta(days=1)).strftime('%Y-%m-%d 12:30:00')"/>
+    <field name="id_type">national_id</field>
+    <field name="id_number">1082345678</field>
+    <field name="badge_number">VIS-0041</field>
+    <field name="state">checked_out</field>
+</record>
+
+<record id="visitor_002" model="construction.visitor.log">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="visitor_name">Sarah Mitchell</field>
+    <field name="company">Independent QC Consultants Ltd</field>
+    <field name="purpose">Concrete cube test witnessing — Level 12</field>
+    <field name="host_id" ref="base.user_demo"/>
+    <field name="check_in" eval="DateTime.now().strftime('%Y-%m-%d 09:00:00')"/>
+    <field name="id_type">passport</field>
+    <field name="id_number">P8823410</field>
+    <field name="badge_number">VIS-0042</field>
+    <field name="state">checked_in</field>
+</record>
+
+<!-- ============================================================
+     ESTIMATES
+============================================================ -->
+<record id="estimate_001" model="construction.estimate">
+    <field name="project_id" ref="project_warehouse_complex"/>
+    <field name="client_id" ref="base.res_partner_12"/>
+    <field name="date" eval="(DateTime.now() - relativedelta(days=30)).strftime('%Y-%m-%d')"/>
+    <field name="validity_date" eval="(DateTime.now() + relativedelta(days=60)).strftime('%Y-%m-%d')"/>
+    <field name="prepared_by" ref="base.user_admin"/>
+    <field name="state">approved</field>
+</record>
+
+<record id="estimate_line_001a" model="construction.estimate.line">
+    <field name="estimate_id" ref="estimate_001"/>
+    <field name="description">Civil works — Foundation and ground slab (25,000 sqm)</field>
+    <field name="uom">LS</field>
+    <field name="quantity">1</field>
+    <field name="unit_price">2100000</field>
+</record>
+
+<record id="estimate_line_001b" model="construction.estimate.line">
+    <field name="estimate_id" ref="estimate_001"/>
+    <field name="description">Pre-engineered steel structure — 3 warehouses</field>
+    <field name="uom">Tonne</field>
+    <field name="quantity">850</field>
+    <field name="unit_price">4500</field>
+</record>
+
+<record id="estimate_line_001c" model="construction.estimate.line">
+    <field name="estimate_id" ref="estimate_001"/>
+    <field name="description">Roofing and cladding system</field>
+    <field name="uom">sqm</field>
+    <field name="quantity">26000</field>
+    <field name="unit_price">85</field>
+</record>
+
+<record id="estimate_line_001d" model="construction.estimate.line">
+    <field name="estimate_id" ref="estimate_001"/>
+    <field name="description">MEP works — Electrical, plumbing and HVAC</field>
+    <field name="uom">LS</field>
+    <field name="quantity">1</field>
+    <field name="unit_price">1450000</field>
+</record>
+
+<record id="estimate_line_001e" model="construction.estimate.line">
+    <field name="estimate_id" ref="estimate_001"/>
+    <field name="description">External works — Roads, parking, landscaping</field>
+    <field name="uom">LS</field>
+    <field name="quantity">1</field>
+    <field name="unit_price">680000</field>
+</record>
+
+<!-- ============================================================
+     BUDGETS
+============================================================ -->
+<record id="budget_001" model="construction.budget">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="budget_type">initial</field>
+    <field name="approved_by" ref="base.user_admin"/>
+    <field name="approved_date" eval="(DateTime.now() - relativedelta(months=7)).strftime('%Y-%m-%d')"/>
+    <field name="state">approved</field>
+</record>
+
+<record id="budget_line_001a" model="construction.budget.line">
+    <field name="budget_id" ref="budget_001"/>
+    <field name="category">labour</field>
+    <field name="description">All labour — direct and supervisory</field>
+    <field name="uom">LS</field>
+    <field name="quantity">1</field>
+    <field name="unit_cost">8500000</field>
+    <field name="actual_amount">7200000</field>
+</record>
+
+<record id="budget_line_001b" model="construction.budget.line">
+    <field name="budget_id" ref="budget_001"/>
+    <field name="category">material</field>
+    <field name="description">Concrete, rebar, formwork and finishes</field>
+    <field name="uom">LS</field>
+    <field name="quantity">1</field>
+    <field name="unit_cost">14000000</field>
+    <field name="actual_amount">9800000</field>
+</record>
+
+<record id="budget_line_001c" model="construction.budget.line">
+    <field name="budget_id" ref="budget_001"/>
+    <field name="category">equipment</field>
+    <field name="description">Tower cranes, concrete pumps, hoists</field>
+    <field name="uom">LS</field>
+    <field name="quantity">1</field>
+    <field name="unit_cost">3200000</field>
+    <field name="actual_amount">2400000</field>
+</record>
+
+<record id="budget_line_001d" model="construction.budget.line">
+    <field name="budget_id" ref="budget_001"/>
+    <field name="category">subcontract</field>
+    <field name="description">MEP, curtain wall, specialist works</field>
+    <field name="uom">LS</field>
+    <field name="quantity">1</field>
+    <field name="unit_cost">12000000</field>
+    <field name="actual_amount">5500000</field>
+</record>
+
+<record id="budget_line_001e" model="construction.budget.line">
+    <field name="budget_id" ref="budget_001"/>
+    <field name="category">overhead</field>
+    <field name="description">Site preliminaries, management, overheads</field>
+    <field name="uom">LS</field>
+    <field name="quantity">1</field>
+    <field name="unit_cost">4500000</field>
+    <field name="actual_amount">3100000</field>
+</record>
+
+<!-- ============================================================
+     COST SHEET
+============================================================ -->
+<record id="cost_sheet_001" model="construction.cost.sheet">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="date" eval="(DateTime.now() - relativedelta(days=7)).strftime('%Y-%m-%d')"/>
+    <field name="prepared_by" ref="base.user_admin"/>
+    <field name="state">approved</field>
+</record>
+
+<record id="cs_line_001a" model="construction.cost.sheet.line">
+    <field name="cost_sheet_id" ref="cost_sheet_001"/>
+    <field name="cost_type">labour</field>
+    <field name="description">Concrete gang — Level 12 slab pour</field>
+    <field name="quantity">45</field>
+    <field name="unit">Man-day</field>
+    <field name="unit_cost">180</field>
+</record>
+
+<record id="cs_line_001b" model="construction.cost.sheet.line">
+    <field name="cost_sheet_id" ref="cost_sheet_001"/>
+    <field name="cost_type">material</field>
+    <field name="description">Ready-mix concrete C30 — 280m3</field>
+    <field name="quantity">280</field>
+    <field name="unit">m3</field>
+    <field name="unit_cost">320</field>
+</record>
+
+<record id="cs_line_001c" model="construction.cost.sheet.line">
+    <field name="cost_sheet_id" ref="cost_sheet_001"/>
+    <field name="cost_type">equipment</field>
+    <field name="description">Concrete boom pump — 8 hours</field>
+    <field name="quantity">2</field>
+    <field name="unit">Day</field>
+    <field name="unit_cost">2800</field>
+</record>
+
+<!-- ============================================================
+     CHANGE ORDERS
+============================================================ -->
+<record id="co_001" model="construction.change.order">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="subject">Additional basement level — B3 car park expansion</field>
+    <field name="reason">Client requested additional 200 car park spaces to meet leasing requirements. This requires an additional basement level (B3) below the original B2 design.</field>
+    <field name="submitted_by" ref="base.user_admin"/>
+    <field name="date_submitted" eval="(DateTime.now() - relativedelta(months=2)).strftime('%Y-%m-%d')"/>
+    <field name="approved_by" ref="base.user_admin"/>
+    <field name="date_approved" eval="(DateTime.now() - relativedelta(months=1, days=10)).strftime('%Y-%m-%d')"/>
+    <field name="state">approved</field>
+    <field name="cost_impact">3800000</field>
+    <field name="time_impact_days">45</field>
+    <field name="description">&lt;p&gt;Additional basement level B3 approximately 2,800 sqm. Includes excavation, retaining walls, waterproofing, structural slab, drainage, ventilation and MEP. Contract value to be revised accordingly.&lt;/p&gt;</field>
+</record>
+
+<record id="co_002" model="construction.change.order">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="subject">Upgrade to high-performance glazing — all elevations</field>
+    <field name="reason">Thermal comfort analysis shows standard glazing specified does not meet updated energy code requirements. Upgrade to double-skin façade system required.</field>
+    <field name="submitted_by" ref="base.user_admin"/>
+    <field name="date_submitted" eval="(DateTime.now() - relativedelta(days=15)).strftime('%Y-%m-%d')"/>
+    <field name="state">under_review</field>
+    <field name="cost_impact">1250000</field>
+    <field name="time_impact_days">20</field>
+</record>
+
+<!-- ============================================================
+     IPCs
+============================================================ -->
+<record id="ipc_001" model="construction.ipc">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="client_id" ref="base.res_partner_2"/>
+    <field name="ipc_number">3</field>
+    <field name="date" eval="(DateTime.now() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+    <field name="period_from" eval="(DateTime.now() - relativedelta(months=2)).strftime('%Y-%m-%d')"/>
+    <field name="period_to" eval="(DateTime.now() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+    <field name="prepared_by" ref="base.user_admin"/>
+    <field name="state">approved</field>
+    <field name="contract_value">45000000</field>
+    <field name="total_claimed">9800000</field>
+    <field name="retention_percentage">10.0</field>
+</record>
+
+<record id="ipc_002" model="construction.ipc">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="client_id" ref="base.res_partner_2"/>
+    <field name="ipc_number">4</field>
+    <field name="date" eval="DateTime.now().strftime('%Y-%m-%d')"/>
+    <field name="period_from" eval="(DateTime.now() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+    <field name="period_to" eval="DateTime.now().strftime('%Y-%m-%d')"/>
+    <field name="prepared_by" ref="base.user_admin"/>
+    <field name="state">submitted</field>
+    <field name="contract_value">45000000</field>
+    <field name="total_claimed">7200000</field>
+    <field name="retention_percentage">10.0</field>
+</record>
+
+<!-- ============================================================
+     WBS
+============================================================ -->
+<record id="wbs_001" model="construction.wbs">
+    <field name="name">Skyline Tower — Full Project WBS</field>
+    <field name="code">SKY-WBS-00</field>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="responsible_id" ref="base.user_admin"/>
+    <field name="planned_start" eval="(DateTime.now() - relativedelta(months=8)).strftime('%Y-%m-%d')"/>
+    <field name="planned_end" eval="(DateTime.now() + relativedelta(months=16)).strftime('%Y-%m-%d')"/>
+    <field name="progress">35.0</field>
+    <field name="budget_amount">45000000</field>
+</record>
+
+<record id="wbs_002" model="construction.wbs">
+    <field name="name">Substructure Works</field>
+    <field name="code">SKY-WBS-01</field>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="parent_id" ref="wbs_001"/>
+    <field name="responsible_id" ref="base.user_demo"/>
+    <field name="planned_start" eval="(DateTime.now() - relativedelta(months=8)).strftime('%Y-%m-%d')"/>
+    <field name="planned_end" eval="(DateTime.now() - relativedelta(months=4)).strftime('%Y-%m-%d')"/>
+    <field name="actual_start" eval="(DateTime.now() - relativedelta(months=7)).strftime('%Y-%m-%d')"/>
+    <field name="actual_end" eval="(DateTime.now() - relativedelta(months=4, days=5)).strftime('%Y-%m-%d')"/>
+    <field name="progress">100.0</field>
+    <field name="budget_amount">8500000</field>
+</record>
+
+<record id="wbs_003" model="construction.wbs">
+    <field name="name">Superstructure — Concrete Frame (Levels 1-20)</field>
+    <field name="code">SKY-WBS-02</field>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="parent_id" ref="wbs_001"/>
+    <field name="responsible_id" ref="base.user_demo"/>
+    <field name="planned_start" eval="(DateTime.now() - relativedelta(months=5)).strftime('%Y-%m-%d')"/>
+    <field name="planned_end" eval="(DateTime.now() + relativedelta(months=3)).strftime('%Y-%m-%d')"/>
+    <field name="actual_start" eval="(DateTime.now() - relativedelta(months=4, days=20)).strftime('%Y-%m-%d')"/>
+    <field name="progress">52.0</field>
+    <field name="budget_amount">16000000</field>
+</record>
+
+<record id="wbs_004" model="construction.wbs">
+    <field name="name">MEP First Fix — All Floors</field>
+    <field name="code">SKY-WBS-03</field>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="parent_id" ref="wbs_001"/>
+    <field name="responsible_id" ref="base.user_admin"/>
+    <field name="planned_start" eval="(DateTime.now() - relativedelta(months=2)).strftime('%Y-%m-%d')"/>
+    <field name="planned_end" eval="(DateTime.now() + relativedelta(months=6)).strftime('%Y-%m-%d')"/>
+    <field name="actual_start" eval="(DateTime.now() - relativedelta(months=1, days=10)).strftime('%Y-%m-%d')"/>
+    <field name="progress">18.0</field>
+    <field name="budget_amount">6500000</field>
+</record>
+
+<!-- ============================================================
+     MILESTONES
+============================================================ -->
+<record id="milestone_001" model="construction.milestone">
+    <field name="name">Substructure Completion</field>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="wbs_id" ref="wbs_002"/>
+    <field name="planned_date" eval="(DateTime.now() - relativedelta(months=4)).strftime('%Y-%m-%d')"/>
+    <field name="actual_date" eval="(DateTime.now() - relativedelta(months=4, days=5)).strftime('%Y-%m-%d')"/>
+    <field name="state">achieved</field>
+    <field name="description">All basement levels B1, B2, B3 and ground floor slab complete. Waterproofing signed off.</field>
+</record>
+
+<record id="milestone_002" model="construction.milestone">
+    <field name="name">Structural Topping Out — Level 20</field>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="wbs_id" ref="wbs_003"/>
+    <field name="planned_date" eval="(DateTime.now() + relativedelta(months=3)).strftime('%Y-%m-%d')"/>
+    <field name="state">pending</field>
+    <field name="description">All structural concrete from Ground to Level 20 poured and cured. Formwork fully stripped.</field>
+</record>
+
+<record id="milestone_003" model="construction.milestone">
+    <field name="name">Façade Watertight</field>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="wbs_id" ref="wbs_001"/>
+    <field name="planned_date" eval="(DateTime.now() + relativedelta(months=7)).strftime('%Y-%m-%d')"/>
+    <field name="state">pending</field>
+    <field name="description">All external glazing and cladding installed and sealed. Building envelope watertight tested and certified.</field>
+</record>
+
+<!-- ============================================================
+     DOCUMENTS
+============================================================ -->
+<record id="doc_001" model="construction.document">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="document_type">specification</field>
+    <field name="revision">C</field>
+    <field name="prepared_by" ref="base.user_admin"/>
+    <field name="reviewed_by" ref="base.user_demo"/>
+    <field name="approved_by" ref="base.user_admin"/>
+    <field name="date_prepared" eval="(DateTime.now() - relativedelta(months=6)).strftime('%Y-%m-%d')"/>
+    <field name="date_expires" eval="(DateTime.now() + relativedelta(years=2)).strftime('%Y-%m-%d')"/>
+    <field name="state">approved</field>
+    <field name="description">Master project specification covering all concrete works, steel, waterproofing and finishes</field>
+</record>
+
+<record id="doc_002" model="construction.document">
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="document_type">contract</field>
+    <field name="revision">A</field>
+    <field name="prepared_by" ref="base.user_admin"/>
+    <field name="approved_by" ref="base.user_admin"/>
+    <field name="date_prepared" eval="(DateTime.now() - relativedelta(months=8)).strftime('%Y-%m-%d')"/>
+    <field name="date_expires" eval="(DateTime.now() + relativedelta(months=18)).strftime('%Y-%m-%d')"/>
+    <field name="state">approved</field>
+    <field name="description">Main building contract — FIDIC Red Book conditions with special conditions of contract</field>
+</record>
+
+<record id="doc_003" model="construction.document">
+    <field name="project_id" ref="project_green_valley"/>
+    <field name="document_type">drawing</field>
+    <field name="revision">D</field>
+    <field name="prepared_by" ref="base.user_demo"/>
+    <field name="date_prepared" eval="(DateTime.now() - relativedelta(days=20)).strftime('%Y-%m-%d')"/>
+    <field name="state">under_review</field>
+    <field name="description">Foundation layout plan — All villa plots, revision incorporating soil investigation recommendations</field>
+</record>
+
+<!-- ============================================================
+     EQUIPMENT
+============================================================ -->
+<record id="equip_001" model="construction.equipment">
+    <field name="name">Liebherr Tower Crane TC-01</field>
+    <field name="equipment_type">crane</field>
+    <field name="manufacturer">Liebherr</field>
+    <field name="model_no">EC-B 380</field>
+    <field name="serial_no">LH-2021-48802</field>
+    <field name="year">2021</field>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="status">deployed</field>
+    <field name="last_maintenance_date" eval="(DateTime.now() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+    <field name="next_maintenance_date" eval="(DateTime.now() + relativedelta(months=2)).strftime('%Y-%m-%d')"/>
+    <field name="daily_rate">4500</field>
+    <field name="notes">Jib length 60m. Max load 16 tonnes. Monthly inspection by Liebherr certified engineer required.</field>
+</record>
+
+<record id="equip_002" model="construction.equipment">
+    <field name="name">Putzmeister Concrete Boom Pump BP-01</field>
+    <field name="equipment_type">pump</field>
+    <field name="manufacturer">Putzmeister</field>
+    <field name="model_no">M 58-5 RZ</field>
+    <field name="serial_no">PM-2020-33156</field>
+    <field name="year">2020</field>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="status">deployed</field>
+    <field name="last_maintenance_date" eval="(DateTime.now() - relativedelta(weeks=3)).strftime('%Y-%m-%d')"/>
+    <field name="next_maintenance_date" eval="(DateTime.now() + relativedelta(weeks=5)).strftime('%Y-%m-%d')"/>
+    <field name="daily_rate">2800</field>
+    <field name="notes">Max vertical reach 58m. Capacity 160m3/hr. Pre-pour inspection checklist mandatory.</field>
+</record>
+
+<record id="equip_003" model="construction.equipment">
+    <field name="name">CAT Excavator 320 — EX-01</field>
+    <field name="equipment_type">excavator</field>
+    <field name="manufacturer">Caterpillar</field>
+    <field name="model_no">320 GC</field>
+    <field name="serial_no">CAT-2022-99034</field>
+    <field name="year">2022</field>
+    <field name="project_id" ref="project_green_valley"/>
+    <field name="status">deployed</field>
+    <field name="last_maintenance_date" eval="(DateTime.now() - relativedelta(weeks=2)).strftime('%Y-%m-%d')"/>
+    <field name="next_maintenance_date" eval="(DateTime.now() + relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+    <field name="daily_rate">1800</field>
+</record>
+
+<record id="equip_004" model="construction.equipment">
+    <field name="name">Cummins 500 kVA Generator — GEN-01</field>
+    <field name="equipment_type">generator</field>
+    <field name="manufacturer">Cummins</field>
+    <field name="model_no">C500 D5</field>
+    <field name="serial_no">CUM-2019-77210</field>
+    <field name="year">2019</field>
+    <field name="status">under_maintenance</field>
+    <field name="last_maintenance_date" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+    <field name="next_maintenance_date" eval="(DateTime.now() + relativedelta(weeks=1)).strftime('%Y-%m-%d')"/>
+    <field name="daily_rate">950</field>
+    <field name="notes">Undergoing 500-hour service. Expected return to service in 5 working days.</field>
+</record>
+
+<!-- ============================================================
+     EQUIPMENT MAINTENANCE
+============================================================ -->
+<record id="maint_001" model="construction.equipment.maintenance">
+    <field name="equipment_id" ref="equip_004"/>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="maintenance_type">preventive</field>
+    <field name="date_reported" eval="(DateTime.now() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+    <field name="reported_by" ref="base.user_demo"/>
+    <field name="assigned_to" ref="base.user_admin"/>
+    <field name="description">500-hour scheduled service: oil change (engine + gearbox), fuel filter replacement, air filter cleaning, belt inspection, battery check, load test.</field>
+    <field name="cost">3500</field>
+    <field name="state">in_progress</field>
+</record>
+
+<record id="maint_002" model="construction.equipment.maintenance">
+    <field name="equipment_id" ref="equip_001"/>
+    <field name="project_id" ref="project_skyline_tower"/>
+    <field name="maintenance_type">corrective</field>
+    <field name="date_reported" eval="(DateTime.now() - relativedelta(months=1, days=3)).strftime('%Y-%m-%d')"/>
+    <field name="date_completed" eval="(DateTime.now() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+    <field name="reported_by" ref="base.user_demo"/>
+    <field name="assigned_to" ref="base.user_admin"/>
+    <field name="description">Slewing ring bearing showing abnormal noise and vibration. Crane taken out of service for inspection and bearing replacement.</field>
+    <field name="resolution">Slewing ring bearing replaced by Liebherr certified technician. Test lift performed and crane returned to service. All documentation updated.</field>
+    <field name="cost">28000</field>
+    <field name="state">completed</field>
+</record>
+
+</data>
+</odoo>
