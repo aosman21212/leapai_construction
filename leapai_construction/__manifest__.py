@@ -1,4 +1,15 @@
 # -*- coding: utf-8 -*-
+# =============================================================================
+#  LeapAI Construction ERP
+# -----------------------------------------------------------------------------
+#  Location  : King Abdulaziz Branch Road, Riyadh, Saudi Arabia
+#  Email     : sales@leapai.ai
+#  Phone     : +966 53 553 3627
+#  Website   : https://leapai.ai
+#  Developer : Abdulkaraim Osman — Tech Manager | Backend Engineer | DevOps Engineer
+#              at Bab International Corp For Specialized Services
+#  LinkedIn  : https://www.linkedin.com/in/abdulkaraim-o-385b7a110/
+# =============================================================================
 {
     'name': 'LeapAI Construction ERP',
     'version': '19.0.1.0.0',
@@ -29,8 +40,9 @@ Phone   : +966 562 984 106
 Website : https://leapai.ai/
     """,
     'author': 'LeapAI',
+    'maintainer': 'Abdulkaraim Osman',
+    'support': 'sales@leapai.ai',
     'website': 'https://leapai.ai/',
-    'support': 'a.osman@bab.com.sa',
     'license': 'LGPL-3',
     'application': True,
     'images': [
